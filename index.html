@@ -241,7 +241,7 @@ var GATE_PASSWORD = 'luan2026';
     if (localStorage.getItem('luanAppSession_v6')) {
         try {
             var _s = JSON.parse(localStorage.getItem('luanAppSession_v6'));
-            if (_s.username && _s.loginTime && (Date.now() - _s.loginTime < 86400000)) {
+            if (_s.username && _s.loginTime && (Date.now() - _s.loginTime < 604800000)) {
                 document.getElementById('gatePage').style.display = 'none';
                 document.getElementById('authPage').classList.remove('hidden');
             }
@@ -3811,7 +3811,7 @@ var GATE_PASSWORD = 'luan2026';
                 if (!isAdminUser) {
                     var safeUsername = u.username.replace(/'/g, "\\'");
                     html += '<button class="btn btn-sm btn-p" onclick="copyUserInfo(\'' + encodeURIComponent(u.username) + '\')" style="font-size:8px;padding:1px 6px;">📋 复制账号</button>';
-                    html += '<button class="btn btn-sm btn-s" onclick="copyUserInfo(\'' + safeUsername + '\')" style="font-size:8px;padding:1px 6px;background:#8b5cf6;color:#fff;">📋 复制</button>';
+                    html += '<button class="btn btn-sm btn-s" onclick="copyWebsiteInfo(\'' + encodeURIComponent(u.username) + '\')" style="font-size:8px;padding:1px 6px;background:#10b981;color:#fff;">🌐 复制网站</button>';
                     html += '<button class="btn btn-sm btn-o" onclick="openEditUser(\'' + u.username + '\')" style="font-size:8px;padding:1px 5px;">✏️</button> ';
                     html += '<button class="btn btn-sm btn-o" onclick="resetUserPwd(\'' + u.username + '\')" style="font-size:8px;padding:1px 5px;color:#f59e0b;border-color:#f59e0b;">🔑重置</button> ';
                     html += '<button class="btn btn-sm btn-o" onclick="deleteUser(\'' + u.username + '\')" style="font-size:8px;padding:1px 5px;color:#ef4444;border-color:#ef4444;">🗑</button>';
@@ -3990,21 +3990,43 @@ var GATE_PASSWORD = 'luan2026';
             var user = result.data;
             var info = '账号：' + user.username +
                 '\n安全问题：' + (user.question || '你的宠物名字是什么？') +
-                '\n问题答案：' + (user.answer || '小花') +
-                '\n\n使用说明：请打开本HTML文件，点击「子账号登录」，输入以上账号和答案即可登录';
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(info).then(function() {
-                    toast('✅ 账号信息已复制');
-                }).catch(function() {
-                    alert(info);
-                    toast('⚠️ 复制失败，已弹窗显示');
-                });
-            } else {
-                alert(info);
-                toast('⚠️ 复制失败，已弹窗显示');
-            }
+                '\n问题答案：' + (user.answer || '小花');
+            doCopy(info, '✅ 账号信息已复制');
             addLog('复制了用户「' + user.username + '」的账号信息');
         });
+    }
+
+    function copyWebsiteInfo(username) {
+        username = decodeURIComponent(username);
+        supabaseClient.from('users').select('*').eq('username', username).single().then(function(result) {
+            if (result.error || !result.data) {
+                toast('❌ 用户不存在', 'error');
+                return;
+            }
+            var user = result.data;
+            var info = '账号：' + user.username +
+                '\n安全问题：' + (user.question || '你的宠物名字是什么？') +
+                '\n问题答案：' + (user.answer || '小花') +
+                '\n\n🌐 网站地址：https://dahai6688.github.io/luan-review/' +
+                '\n🔐 访问密码：luan2026' +
+                '\n\n使用说明：打开网站 → 输入访问密码 → 点击「子账号登录」→ 输入以上账号和答案即可登录';
+            doCopy(info, '✅ 网站信息已复制');
+            addLog('复制了用户「' + user.username + '」的网站信息');
+        });
+    }
+
+    function doCopy(info, successMsg) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(info).then(function() {
+                toast(successMsg);
+            }).catch(function() {
+                alert(info);
+                toast('⚠️ 复制失败，已弹窗显示');
+            });
+        } else {
+            alert(info);
+            toast('⚠️ 复制失败，已弹窗显示');
+        }
     }
 
     function openEditUser(username) {
@@ -4316,10 +4338,12 @@ var GATE_PASSWORD = 'luan2026';
     window.deleteUser = deleteUser;
     window.resetUserPwd = resetUserPwd;
     window.copyUserInfo = copyUserInfo;
+    window.copyWebsiteInfo = copyWebsiteInfo;
     window.openEditUser = openEditUser;
     window.closeEditUserModal = closeEditUserModal;
     window.saveEditUser = saveEditUser;
     window.copyUserInfo = copyUserInfo;
+    window.copyWebsiteInfo = copyWebsiteInfo;
     window.openDealerSelectModal = openDealerSelectModal;
     window.openEditDealerSelectModal = openEditDealerSelectModal;
     window.closeDealerSelectModal = closeDealerSelectModal;
@@ -4351,6 +4375,7 @@ var GATE_PASSWORD = 'luan2026';
     window.clearAllInputs = clearAllInputs;
     window.confirmReset = function() { location.reload(); };
     window.copyUserInfo = copyUserInfo;
+    window.copyWebsiteInfo = copyWebsiteInfo;
     window.getCurrentUser = function() { return currentUser; };
     window.changeAdminPassword = changeAdminPassword;
     window.importBackup = importBackup;
