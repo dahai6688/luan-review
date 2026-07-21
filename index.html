@@ -590,7 +590,9 @@ var GATE_PASSWORD = 'luan2026';
                             clearAppSession();
                             document.body.innerHTML = '<div style=\"display:flex;align-items:center;justify-content:center;height:100vh;background:#1a1a2e;color:#fff;font-family:sans-serif;text-align:center;\"><div><div style=\"font-size:64px;margin-bottom:20px;\">🚫</div><h2 style=\"color:#ef4444;\">此账号已被管理员删除</h2><p style=\"color:#9ca3af;margin-top:10px;\">请联系管理员（胡大海）重新开通</p></div></div>';
                         }
-                    }).catch(function(){});
+                    }).catch(function(e) {
+                        console.error('轮询黑名单失败:', e.message || e);
+                    });
             }, 30000);
         }
     }
@@ -3949,7 +3951,7 @@ var GATE_PASSWORD = 'luan2026';
         if (currentUser.role !== 'admin') { toast('只有管理员可以删除用户', 'warning'); return; }
         if (!confirm('确认删除「' + username + '」吗？')) return;
         // 写入公开黑名单 → 子账号轮询检测到后被踢出
-        supabaseClient.from('revoked_users').insert({ username: username }).then(function(r1) {
+        supabaseClient.from('revoked_users').upsert({ username: username }).then(function(r1) {
             if (r1.error) { toast('❌ 删除失败(1)：' + r1.error.message, 'error'); return; }
             supabaseClient.from('users').delete().eq('username', username).then(function(result) {
                 if (result.error) {
