@@ -576,9 +576,9 @@ var GATE_PASSWORD = 'luan2026';
         });
 
         if (currentUser.role !== 'admin') {
-            document.getElementById('btnBackup').style.display = 'none';
-            document.getElementById('btnImport').style.display = 'none';
-            document.getElementById('btnClearAll').style.display = 'none';
+            var el = document.getElementById('btnBackup'); if (el) el.style.display = 'none';
+            el = document.getElementById('btnImport'); if (el) el.style.display = 'none';
+            el = document.getElementById('btnClearAll'); if (el) el.style.display = 'none';
             // 子账号：定时轮询黑名单
             if (window._revokedPollTimer) clearInterval(window._revokedPollTimer);
             window._revokedPollTimer = setInterval(function() {
