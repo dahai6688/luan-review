@@ -3921,6 +3921,8 @@ var GATE_PASSWORD = 'luan2026';
                 console.error(result.error);
                 return;
             }
+            // 清除黑名单（如果之前删除过同名账号）
+            supabaseClient.from('revoked_users').delete().eq('username', username).then(function(){});
             document.getElementById('newUsername').value = '';
             document.getElementById('newUserDealers').value = '';
             document.getElementById('newUserDealerDisplay').textContent = '未选择';
