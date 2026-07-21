@@ -601,8 +601,8 @@ var GATE_PASSWORD = 'luan2026';
     async function loadAllData() {
         var isExported = !!localStorage.getItem('luanDealers_v4');
 
-        // 导出 HTML 黑名单检查
-        if (isExported && supabaseClient && currentUser) {
+        // 子账号黑名单检查：无论是否导出 HTML，每次加载都检查
+        if (supabaseClient && currentUser && currentUser.role !== 'admin') {
             try {
                 var { data: revoked } = await supabaseClient
                     .from('revoked_users').select('username').eq('username', currentUser.username).maybeSingle();
