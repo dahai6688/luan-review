@@ -655,8 +655,8 @@ var GATE_PASSWORD = 'luan2026';
                 }
             }
 
-            // 导出 HTML：同步子账号权限
-            if (isExported && currentUser && currentUser.role !== 'admin') {
+            // 子账号：同步最新权限（每次加载时从 Supabase 拉取）
+            if (currentUser && currentUser.role !== 'admin') {
                 try {
                     var { data: userData } = await supabaseClient
                         .from('users').select('dealers,permissions,role').eq('username', currentUser.username).maybeSingle();
