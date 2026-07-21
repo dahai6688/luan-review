@@ -3945,19 +3945,18 @@ var GATE_PASSWORD = 'luan2026';
 
     function deleteUser(username) {
         if (currentUser.role !== 'admin') { toast('只有管理员可以删除用户', 'warning'); return; }
-        if (!confirm('确认删除「' + username + '」吗？\n⚠️ 该子账号的HTML文件将立即失效。')) return;
-        // 写入公开黑名单 → 已导出的 HTML 检查后会拒绝登录
-        supabaseClient.from('revoked_users').insert({ username: username }).then(function() {
-            supabaseClient.from('users').update({ login_token: null }).eq('username', username).then(function() {
-                supabaseClient.from('users').delete().eq('username', username).then(function(result) {
-                    if (result.error) {
-                        toast('❌ 删除失败：' + result.error.message, 'error');
-                        return;
-                    }
-                    renderUserTable();
-                    toast('✅ 已删除用户「' + username + '」，导出的HTML立即失效');
-                    addLog('删除了用户「' + username + '」');
-                });
+        if (!confirm('确认删除「' + username + '」吗？')) return;
+        // 写入公开黑名单 → 子账号轮询检测到后被踢出
+        supabaseClient.from('revoked_users').insert({ username: username }).then(function(r1) {
+            if (r1.error) { toast('❌ 删除失败(1)：' + r1.error.message, 'error'); return; }
+            supabaseClient.from('users').delete().eq('username', username).then(function(result) {
+                if (result.error) {
+                    toast('❌ 删除失败(2)：' + result.error.message, 'error');
+                    return;
+                }
+                renderUserTable();
+                toast('✅ 已删除用户「' + username + '」，30秒内对方自动退出');
+                addLog('删除了用户「' + username + '」');
             });
         });
     }
