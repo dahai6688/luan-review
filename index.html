@@ -9201,6 +9201,14 @@ var GATE_PASSWORD = 'luan2026';
 
     window.getCategoryMap = getCategoryMap;
 
+    function clearAllInputs() {
+        clearReviewInputs();
+        clearLiveChecks();
+        var liveFields = ['ls','vw','gm','ll','lN'];
+        for(var i=0;i<liveFields.length;i++){var el=document.getElementById(liveFields[i]);if(el)el.value='';}
+        var deepFields = ['deep_enterRate','deep_avgStay','deep_gmv','deep_orders','deep_interact','deep_interactRate','deep_oldRate','deep_organicRate','deep_totalView','deep_peakOnline','deep_avgOnline','deep_adRate'];
+        for(var i=0;i<deepFields.length;i++){var el=document.getElementById(deepFields[i]);if(el)el.value='';}
+    }
     window.clearAllInputs = clearAllInputs;
 
     window.confirmReset = function() { location.reload(); };
