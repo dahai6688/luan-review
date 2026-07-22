@@ -9228,6 +9228,37 @@ var p=document.getElementById('tp'),b=document.getElementById('ttb');
 if(p&&b&&!p.contains(e.target)&&!b.contains(e.target))p.classList.remove('show');
 });
 })();
+
+/* === 动画增强 === */
+(function(){
+    /* 卡片淡入 - 监听 showMainApp 执行后的 DOM 变化 */
+    var _origSMA = showMainApp;
+    showMainApp = function(){
+        _origSMA.apply(this, arguments);
+        setTimeout(function(){
+            var cards = document.querySelectorAll('.card:not(.fade-in),.stat-card:not(.fade-in),.widget-card:not(.fade-in)');
+            for(var i=0;i<cards.length;i++){cards[i].classList.add('fade-in');cards[i].style.animationDelay=(i*0.03)+'s';}
+        },150);
+    };
+    /* Tab 切换动画 */
+    var _origSWT = swT;
+    swT = function(n){
+        _origSWT(n);
+        setTimeout(function(){
+            var cards = document.querySelectorAll('.card:not(.fade-in),.stat-card:not(.fade-in),.widget-card:not(.fade-in)');
+            for(var i=0;i<cards.length;i++){cards[i].classList.add('fade-in');cards[i].style.animationDelay=(i*0.02)+'s';}
+        },80);
+    };
+    /* 保存成功脉冲 */
+    var _origToast = toast;
+    toast = function(msg,type){
+        _origToast(msg,type);
+        if(type==='success'||(!type&&msg.indexOf('✅')!==-1)){
+            var btns=document.querySelectorAll('.btn-s');
+            for(var i=0;i<btns.length;i++){btns[i].classList.add('save-pulse');setTimeout(function(el){el.classList.remove('save-pulse');},600,btns[i]);}
+        }
+    };
+})();
 </script>
 
 </body>
