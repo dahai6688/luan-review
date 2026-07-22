@@ -4,494 +4,457 @@
 
 .gate-page{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 50% 30%,#1a1a2e,#0a0e17);display:flex;align-items:center;justify-content:center;z-index:99999}.gate-card{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:44px 38px 36px;width:360px;max-width:92%;box-shadow:0 30px 80px rgba(0,0,0,0.6);text-align:center}.gate-card h2{color:#cc0000;font-size:20px;margin-bottom:6px}.gate-card .sub{font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:20px}.gate-card input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:#fff;font-size:16px;text-align:center;letter-spacing:4px;outline:none}.gate-card input:focus{border-color:#cc0000}.gate-card .gate-btn{margin-top:16px;width:100%;padding:12px;border:none;border-radius:10px;background:linear-gradient(135deg,#cc0000,#e53935);color:#fff;font-size:16px;font-weight:600;cursor:pointer;letter-spacing:2px}.gate-card .gate-err{color:#ef4444;font-size:12px;margin-top:8px;min-height:18px}</style>
 <style>
-
-/* ================================================================== */
-/* 主题系统 v2 — 仅覆盖颜色，不改变布局 */
-/* ================================================================== */
-
-/* --- 浅色简洁 --- */
-[data-theme="light"] body { background: #fbfbfa; }
-[data-theme="light"] .sidebar { background: #f7f6f3; color: #37352f; }
-[data-theme="light"] .sidebar-header { border-bottom-color: #e9e9e7; }
-[data-theme="light"] .sidebar-header .brand .brand-name { color: #37352f; }
-[data-theme="light"] .di { color: #6b6966; }
-[data-theme="light"] .di:hover { background: rgba(0,0,0,0.03); color: #37352f; }
-[data-theme="light"] .di.act { background: rgba(0,0,0,0.05); color: #37352f; border-left-color: #37352f; }
-[data-theme="light"] .gl { color: #b4b2ad; }
-[data-theme="light"] .sd-search input { background: #fff; color: #37352f; border-color: #e9e9e7; }
-[data-theme="light"] .mh { background: #fff; border-bottom-color: #e9e9e7; }
-[data-theme="light"] .mh h2 { color: #37352f; }
-[data-theme="light"] .mh .user-info { color: #9b9a97; }
-[data-theme="light"] .mh .user-info .user-name { color: #37352f; }
-[data-theme="light"] .mb { background: #fbfbfa; }
-[data-theme="light"] .card { background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.02); border: 1px solid #e9e9e7; }
-[data-theme="light"] .ct { color: #37352f; }
-[data-theme="light"] .fg label { color: #9b9a97; }
-[data-theme="light"] .fg input, [data-theme="light"] .fg textarea, [data-theme="light"] .fg select { background: #fff; color: #37352f; border-color: #e9e9e7; }
-[data-theme="light"] .filter-row, [data-theme="light"] .batch-actions, [data-theme="light"] .user-batch-toolbar, [data-theme="light"] .dealer-mgr-toolbar, [data-theme="light"] .user-mgr .add-user-row { background: #fbfbfa; border-color: #e9e9e7; }
-[data-theme="light"] #tb th, [data-theme="light"] .user-mgr .user-table th, [data-theme="light"] .dealer-table-wrap th { background: #fbfbfa; color: #9b9a97; border-bottom-color: #e9e9e7; }
-[data-theme="light"] #tb td, [data-theme="light"] .user-mgr .user-table td, [data-theme="light"] .dealer-table-wrap td { border-bottom-color: #f0efed; }
-[data-theme="light"] .tbs { background: #f7f6f3; }
-[data-theme="light"] .tb { color: #6b6966; }
-[data-theme="light"] .tb.act { background: #fff; color: #37352f; }
-[data-theme="light"] .dashboard-home .welcome { background: #f7f6f3; color: #37352f; border: 1px solid #e9e9e7; }
-[data-theme="light"] .dashboard-home .welcome h2 { color: #37352f; }
-[data-theme="light"] .dashboard-home .welcome p { color: #6b6966; }
-[data-theme="light"] .dashboard-home .welcome .welcome-right { color: #9b9a97; }
-[data-theme="light"] .dashboard-home .stat-card { background: #fff; border-color: #e9e9e7; }
-[data-theme="light"] .dashboard-home .stat-card .stat-label { color: #9b9a97; }
-[data-theme="light"] .dashboard-home .widget-grid .widget-card { background: #fff; border-color: #e9e9e7; }
-[data-theme="light"] .dashboard-home .widget-grid .widget-card .widget-title { color: #37352f; }
-[data-theme="light"] .dashboard-home .widget-grid .widget-card .widget-body { color: #6b6966; }
-[data-theme="light"] .btn-o { border-color: #e9e9e7; color: #37352f; }
-[data-theme="light"] .btn-o:hover { background: #f7f6f3; }
-[data-theme="light"] .modal-overlay { background: rgba(0,0,0,0.3); }
-[data-theme="light"] .modal-box { background: #fff; }
-[data-theme="light"] .modal-box h3 { color: #37352f; }
-[data-theme="light"] .modal-box .modal-label { color: #9b9a97; }
-[data-theme="light"] .modal-box input, [data-theme="light"] .modal-box textarea, [data-theme="light"] .modal-box select { background: #fbfbfa; color: #37352f; border-color: #e9e9e7; }
-[data-theme="light"] .pagination .page-btn, [data-theme="light"] .dealer-pagination .page-btn { background: #fff; border-color: #e9e9e7; color: #37352f; }
-[data-theme="light"] .ma { background: #fbfbfa; border-color: #e9e9e7; }
-[data-theme="light"] .mt { color: #37352f; }
-[data-theme="light"] .live-result-box { background: #fbfbfa; border-color: #e9e9e7; color: #37352f; }
-/* Auth/Gate - light */
-[data-theme="light"] .auth-page { background: #fbfbfa; }
-[data-theme="light"] .auth-card { background: #fff; border-color: #e9e9e7; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-[data-theme="light"] .auth-brand h1 { color: #37352f; }
-[data-theme="light"] .auth-brand .sub { color: #b4b2ad; }
-[data-theme="light"] .auth-form .form-group label { color: #9b9a97; }
-[data-theme="light"] .auth-form .form-group input { background: #fbfbfa; border-color: #e9e9e7; color: #37352f; }
-[data-theme="light"] .auth-form .form-group input:focus { border-color: #37352f; background: #fff; }
-[data-theme="light"] .auth-form .form-group select { background: #fbfbfa; border-color: #e9e9e7; color: #37352f; }
-[data-theme="light"] .auth-form .form-group select option { background: #fff; color: #37352f; }
-[data-theme="light"] .auth-btn { background: #37352f; }
-[data-theme="light"] .auth-btn:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
-[data-theme="light"] .auth-footer { color: #b4b2ad; }
-[data-theme="light"] .auth-footer a { color: #9b9a97; }
-[data-theme="light"] .auth-footer a:hover { color: #37352f; }
-[data-theme="light"] .question-area { background: #f7f6f3; border-color: #e9e9e7; }
-[data-theme="light"] .question-area .q-text { color: #37352f; }
-[data-theme="light"] .question-area .q-hint { color: #b4b2ad; }
-[data-theme="light"] .gate-page { background: #fbfbfa; }
-[data-theme="light"] .gate-card { background: #fff; border-color: #e9e9e7; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-[data-theme="light"] .gate-card h2 { color: #37352f; }
-[data-theme="light"] .gate-card .sub { color: #b4b2ad; }
-[data-theme="light"] .gate-card input { background: #fbfbfa; border-color: #e9e9e7; color: #37352f; }
-[data-theme="light"] .gate-card input:focus { border-color: #cc0000; background: #fff; }
-[data-theme="light"] .gate-card .gate-btn { background: #cc0000; }
-[data-theme="light"] .toggle-switch-label { color: #6b6966; }
-
-/* --- 柔和暖色 --- */
-[data-theme="warm"] body { background: #fef9f2; }
-[data-theme="warm"] .sidebar { background: #f5ede0; color: #5c4a3a; }
-[data-theme="warm"] .sidebar-header { border-bottom-color: #e8dcc8; }
-[data-theme="warm"] .sidebar-header .brand .brand-name { color: #5c4a3a; }
-[data-theme="warm"] .di { color: #8b7355; }
-[data-theme="warm"] .di:hover { background: rgba(180,140,100,0.1); color: #5c4a3a; }
-[data-theme="warm"] .di.act { background: rgba(180,140,100,0.15); color: #5c4a3a; border-left-color: #c0392b; }
-[data-theme="warm"] .gl { color: #b8a088; }
-[data-theme="warm"] .sd-search input { background: #fffbf5; color: #5c4a3a; border-color: #e8dcc8; }
-[data-theme="warm"] .mh { background: #fffbf5; border-bottom-color: #e8dcc8; }
-[data-theme="warm"] .mh h2 { color: #5c4a3a; }
-[data-theme="warm"] .mh .user-info { color: #8b7355; }
-[data-theme="warm"] .mh .user-info .user-name { color: #5c4a3a; }
-[data-theme="warm"] .mb { background: #fef9f2; }
-[data-theme="warm"] .card { background: #fffbf5; box-shadow: 0 1px 3px rgba(92,74,58,0.05); border: 1px solid #e8dcc8; }
-[data-theme="warm"] .ct { color: #5c4a3a; }
-[data-theme="warm"] .fg label { color: #8b7355; }
-[data-theme="warm"] .fg input, [data-theme="warm"] .fg textarea, [data-theme="warm"] .fg select { background: #fffbf5; color: #5c4a3a; border-color: #e8dcc8; }
-[data-theme="warm"] .filter-row, [data-theme="warm"] .batch-actions, [data-theme="warm"] .user-batch-toolbar, [data-theme="warm"] .dealer-mgr-toolbar, [data-theme="warm"] .user-mgr .add-user-row { background: #fdf6ec; border-color: #e8dcc8; }
-[data-theme="warm"] #tb th, [data-theme="warm"] .user-mgr .user-table th, [data-theme="warm"] .dealer-table-wrap th { background: #fdf6ec; color: #8b7355; border-bottom-color: #e8dcc8; }
-[data-theme="warm"] #tb td, [data-theme="warm"] .user-mgr .user-table td, [data-theme="warm"] .dealer-table-wrap td { border-bottom-color: #f0e8d5; }
-[data-theme="warm"] .tbs { background: #faf3e6; }
-[data-theme="warm"] .tb { color: #8b7355; }
-[data-theme="warm"] .tb.act { background: #fffbf5; color: #5c4a3a; }
-[data-theme="warm"] .dashboard-home .welcome { background: linear-gradient(135deg,#5c4a3a,#8b7355); color: #fff; }
-[data-theme="warm"] .dashboard-home .welcome h2 { color: #fff; }
-[data-theme="warm"] .dashboard-home .welcome p { color: rgba(255,255,255,0.85); }
-[data-theme="warm"] .dashboard-home .welcome .welcome-right { color: rgba(255,255,255,0.7); }
-[data-theme="warm"] .dashboard-home .stat-card { background: #fffbf5; border-color: #e8dcc8; }
-[data-theme="warm"] .dashboard-home .stat-card .stat-label { color: #b8a088; }
-[data-theme="warm"] .dashboard-home .widget-grid .widget-card { background: #fffbf5; border-color: #e8dcc8; }
-[data-theme="warm"] .dashboard-home .widget-grid .widget-card .widget-title { color: #5c4a3a; }
-[data-theme="warm"] .dashboard-home .widget-grid .widget-card .widget-body { color: #8b7355; }
-[data-theme="warm"] .btn-o { border-color: #e8dcc8; color: #5c4a3a; }
-[data-theme="warm"] .btn-o:hover { background: #faf3e6; }
-[data-theme="warm"] .modal-overlay { background: rgba(92,74,58,0.4); }
-[data-theme="warm"] .modal-box { background: #fffbf5; }
-[data-theme="warm"] .modal-box h3 { color: #5c4a3a; }
-[data-theme="warm"] .modal-box .modal-label { color: #8b7355; }
-[data-theme="warm"] .modal-box input, [data-theme="warm"] .modal-box textarea, [data-theme="warm"] .modal-box select { background: #fef9f2; color: #5c4a3a; border-color: #e8dcc8; }
-[data-theme="warm"] .pagination .page-btn, [data-theme="warm"] .dealer-pagination .page-btn { background: #fffbf5; border-color: #e8dcc8; color: #5c4a3a; }
-[data-theme="warm"] .ma { background: #fef9f2; border-color: #e8dcc8; }
-[data-theme="warm"] .mt { color: #5c4a3a; }
-[data-theme="warm"] .live-result-box { background: #fef9f2; border-color: #e8dcc8; color: #5c4a3a; }
-[data-theme="warm"] .auth-page { background: #fef9f2; }
-[data-theme="warm"] .auth-card { background: #fffbf5; border-color: #e8dcc8; box-shadow: 0 4px 20px rgba(92,74,58,0.1); }
-[data-theme="warm"] .auth-brand h1 { color: #5c4a3a; }
-[data-theme="warm"] .auth-brand .sub { color: #b8a088; }
-[data-theme="warm"] .auth-form .form-group label { color: #8b7355; }
-[data-theme="warm"] .auth-form .form-group input { background: #fef9f2; border-color: #e8dcc8; color: #5c4a3a; }
-[data-theme="warm"] .auth-form .form-group input:focus { border-color: #c0392b; background: #fffbf5; }
-[data-theme="warm"] .auth-form .form-group select { background: #fef9f2; border-color: #e8dcc8; color: #5c4a3a; }
-[data-theme="warm"] .auth-form .form-group select option { background: #fffbf5; color: #5c4a3a; }
-[data-theme="warm"] .auth-btn { background: linear-gradient(135deg,#c0392b,#e74c3c); }
-[data-theme="warm"] .auth-btn:hover { box-shadow: 0 8px 32px rgba(192,57,43,0.3); }
-[data-theme="warm"] .auth-footer { color: #b8a088; }
-[data-theme="warm"] .auth-footer a { color: #b8a088; }
-[data-theme="warm"] .auth-footer a:hover { color: #5c4a3a; }
-[data-theme="warm"] .question-area { background: #faf3e6; border-color: #e8dcc8; }
-[data-theme="warm"] .question-area .q-text { color: #5c4a3a; }
-[data-theme="warm"] .question-area .q-hint { color: #b8a088; }
-[data-theme="warm"] .gate-page { background: #fef9f2; }
-[data-theme="warm"] .gate-card { background: #fffbf5; border-color: #e8dcc8; box-shadow: 0 4px 20px rgba(92,74,58,0.1); }
-[data-theme="warm"] .gate-card h2 { color: #5c4a3a; }
-[data-theme="warm"] .gate-card .sub { color: #b8a088; }
-[data-theme="warm"] .gate-card input { background: #fef9f2; border-color: #e8dcc8; color: #5c4a3a; }
-[data-theme="warm"] .gate-card input:focus { border-color: #c0392b; background: #fffbf5; }
-[data-theme="warm"] .gate-card .gate-btn { background: linear-gradient(135deg,#c0392b,#e74c3c); }
-[data-theme="warm"] .toggle-switch-label { color: #8b7355; }
-
-/* --- 清新护眼 --- */
-[data-theme="green"] body { background: #f2f7f4; }
-[data-theme="green"] .sidebar { background: #e8f0eb; color: #2d4a3e; }
-[data-theme="green"] .sidebar-header { border-bottom-color: #d0e0d5; }
-[data-theme="green"] .sidebar-header .brand .brand-name { color: #2d4a3e; }
-[data-theme="green"] .di { color: #5a7d6a; }
-[data-theme="green"] .di:hover { background: rgba(76,175,80,0.08); color: #2d4a3e; }
-[data-theme="green"] .di.act { background: rgba(76,175,80,0.12); color: #2d4a3e; border-left-color: #2e7d52; }
-[data-theme="green"] .gl { color: #8faa98; }
-[data-theme="green"] .sd-search input { background: #fff; color: #2d4a3e; border-color: #d0e0d5; }
-[data-theme="green"] .mh { background: #fff; border-bottom-color: #d0e0d5; }
-[data-theme="green"] .mh h2 { color: #2d4a3e; }
-[data-theme="green"] .mh .user-info { color: #5a7d6a; }
-[data-theme="green"] .mh .user-info .user-name { color: #2d4a3e; }
-[data-theme="green"] .mb { background: #f2f7f4; }
-[data-theme="green"] .card { background: #fff; box-shadow: 0 1px 2px rgba(45,74,62,0.04); border: 1px solid #d0e0d5; }
-[data-theme="green"] .ct { color: #2d4a3e; }
-[data-theme="green"] .fg label { color: #5a7d6a; }
-[data-theme="green"] .fg input, [data-theme="green"] .fg textarea, [data-theme="green"] .fg select { background: #fff; color: #2d4a3e; border-color: #d0e0d5; }
-[data-theme="green"] .filter-row, [data-theme="green"] .batch-actions, [data-theme="green"] .user-batch-toolbar, [data-theme="green"] .dealer-mgr-toolbar, [data-theme="green"] .user-mgr .add-user-row { background: #f5faf6; border-color: #d0e0d5; }
-[data-theme="green"] #tb th, [data-theme="green"] .user-mgr .user-table th, [data-theme="green"] .dealer-table-wrap th { background: #f5faf6; color: #5a7d6a; border-bottom-color: #d0e0d5; }
-[data-theme="green"] #tb td, [data-theme="green"] .user-mgr .user-table td, [data-theme="green"] .dealer-table-wrap td { border-bottom-color: #e0ece4; }
-[data-theme="green"] .tbs { background: #eaf2ed; }
-[data-theme="green"] .tb { color: #5a7d6a; }
-[data-theme="green"] .tb.act { background: #fff; color: #2d4a3e; }
-[data-theme="green"] .dashboard-home .welcome { background: linear-gradient(135deg,#2d4a3e,#3d6b54); color: #fff; }
-[data-theme="green"] .dashboard-home .welcome h2 { color: #fff; }
-[data-theme="green"] .dashboard-home .welcome p { color: rgba(255,255,255,0.85); }
-[data-theme="green"] .dashboard-home .welcome .welcome-right { color: rgba(255,255,255,0.7); }
-[data-theme="green"] .dashboard-home .stat-card { background: #fff; border-color: #d0e0d5; }
-[data-theme="green"] .dashboard-home .stat-card .stat-label { color: #8faa98; }
-[data-theme="green"] .dashboard-home .widget-grid .widget-card { background: #fff; border-color: #d0e0d5; }
-[data-theme="green"] .dashboard-home .widget-grid .widget-card .widget-title { color: #2d4a3e; }
-[data-theme="green"] .dashboard-home .widget-grid .widget-card .widget-body { color: #5a7d6a; }
-[data-theme="green"] .btn-o { border-color: #d0e0d5; color: #2d4a3e; }
-[data-theme="green"] .btn-o:hover { background: #eaf2ed; }
-[data-theme="green"] .modal-overlay { background: rgba(45,74,62,0.4); }
-[data-theme="green"] .modal-box { background: #fff; }
-[data-theme="green"] .modal-box h3 { color: #2d4a3e; }
-[data-theme="green"] .modal-box .modal-label { color: #5a7d6a; }
-[data-theme="green"] .modal-box input, [data-theme="green"] .modal-box textarea, [data-theme="green"] .modal-box select { background: #f5faf6; color: #2d4a3e; border-color: #d0e0d5; }
-[data-theme="green"] .pagination .page-btn, [data-theme="green"] .dealer-pagination .page-btn { background: #fff; border-color: #d0e0d5; color: #2d4a3e; }
-[data-theme="green"] .ma { background: #f5faf6; border-color: #d0e0d5; }
-[data-theme="green"] .mt { color: #2d4a3e; }
-[data-theme="green"] .live-result-box { background: #f5faf6; border-color: #d0e0d5; color: #2d4a3e; }
-[data-theme="green"] .auth-page { background: #f2f7f4; }
-[data-theme="green"] .auth-card { background: #fff; border-color: #d0e0d5; box-shadow: 0 4px 20px rgba(45,74,62,0.08); }
-[data-theme="green"] .auth-brand h1 { color: #2d4a3e; }
-[data-theme="green"] .auth-brand .sub { color: #8faa98; }
-[data-theme="green"] .auth-brand .mode-tag { background: #e8f5ee; color: #2e7d52; border-color: rgba(46,125,82,0.15); }
-[data-theme="green"] .auth-form .form-group label { color: #5a7d6a; }
-[data-theme="green"] .auth-form .form-group input { background: #f5faf6; border-color: #d0e0d5; color: #2d4a3e; }
-[data-theme="green"] .auth-form .form-group input:focus { border-color: #2e7d52; background: #fff; }
-[data-theme="green"] .auth-form .form-group select { background: #f5faf6; border-color: #d0e0d5; color: #2d4a3e; }
-[data-theme="green"] .auth-form .form-group select option { background: #fff; color: #2d4a3e; }
-[data-theme="green"] .auth-btn { background: linear-gradient(135deg,#2e7d52,#43a047); }
-[data-theme="green"] .auth-btn:hover { box-shadow: 0 8px 32px rgba(46,125,82,0.3); }
-[data-theme="green"] .auth-footer { color: #8faa98; }
-[data-theme="green"] .auth-footer a { color: #8faa98; }
-[data-theme="green"] .auth-footer a:hover { color: #2d4a3e; }
-[data-theme="green"] .question-area { background: #eaf2ed; border-color: #d0e0d5; }
-[data-theme="green"] .question-area .q-text { color: #2d4a3e; }
-[data-theme="green"] .question-area .q-hint { color: #8faa98; }
-[data-theme="green"] .gate-page { background: #f2f7f4; }
-[data-theme="green"] .gate-card { background: #fff; border-color: #d0e0d5; box-shadow: 0 4px 20px rgba(45,74,62,0.08); }
-[data-theme="green"] .gate-card h2 { color: #2d4a3e; }
-[data-theme="green"] .gate-card .sub { color: #8faa98; }
-[data-theme="green"] .gate-card input { background: #f5faf6; border-color: #d0e0d5; color: #2d4a3e; }
-[data-theme="green"] .gate-card input:focus { border-color: #2e7d52; background: #fff; }
-[data-theme="green"] .gate-card .gate-btn { background: linear-gradient(135deg,#2e7d52,#43a047); }
-[data-theme="green"] .toggle-switch-label { color: #5a7d6a; }
-
-/* --- 商务蓝 --- */
-[data-theme="business"] body { background: #f4f7fb; }
-[data-theme="business"] .sidebar { background: #1e3a5f; color: #fff; }
-[data-theme="business"] .sidebar-header { border-bottom-color: rgba(255,255,255,0.1); }
-[data-theme="business"] .sidebar-header .brand .brand-name { color: #fff; }
-[data-theme="business"] .di { color: rgba(255,255,255,0.55); }
-[data-theme="business"] .di:hover { background: rgba(255,255,255,0.06); color: #fff; }
-[data-theme="business"] .di.act { background: rgba(255,255,255,0.1); color: #fff; border-left-color: #3b82f6; }
-[data-theme="business"] .gl { color: rgba(255,255,255,0.35); }
-[data-theme="business"] .sd-search input { background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.1); }
-[data-theme="business"] .mh { background: #fff; border-bottom-color: #dde4ed; }
-[data-theme="business"] .mh h2 { color: #1a2a3a; }
-[data-theme="business"] .mh .user-info { color: #5a6d80; }
-[data-theme="business"] .mh .user-info .user-name { color: #1a2a3a; }
-[data-theme="business"] .mb { background: #f4f7fb; }
-[data-theme="business"] .card { background: #fff; box-shadow: 0 1px 3px rgba(26,42,58,0.04); border: 1px solid #dde4ed; }
-[data-theme="business"] .ct { color: #1a2a3a; }
-[data-theme="business"] .fg label { color: #5a6d80; }
-[data-theme="business"] .fg input, [data-theme="business"] .fg textarea, [data-theme="business"] .fg select { background: #fff; color: #1a2a3a; border-color: #dde4ed; }
-[data-theme="business"] .filter-row, [data-theme="business"] .batch-actions, [data-theme="business"] .user-batch-toolbar, [data-theme="business"] .dealer-mgr-toolbar, [data-theme="business"] .user-mgr .add-user-row { background: #f7f9fc; border-color: #dde4ed; }
-[data-theme="business"] #tb th, [data-theme="business"] .user-mgr .user-table th, [data-theme="business"] .dealer-table-wrap th { background: #f7f9fc; color: #5a6d80; border-bottom-color: #dde4ed; }
-[data-theme="business"] #tb td, [data-theme="business"] .user-mgr .user-table td, [data-theme="business"] .dealer-table-wrap td { border-bottom-color: #edf1f6; }
-[data-theme="business"] .tbs { background: #eef3f8; }
-[data-theme="business"] .tb { color: #5a6d80; }
-[data-theme="business"] .tb.act { background: #fff; color: #1a2a3a; }
-[data-theme="business"] .dashboard-home .welcome { background: linear-gradient(135deg,#1e3a5f,#2d5a8e); color: #fff; }
-[data-theme="business"] .dashboard-home .welcome h2 { color: #fff; }
-[data-theme="business"] .dashboard-home .welcome p { color: rgba(255,255,255,0.85); }
-[data-theme="business"] .dashboard-home .welcome .welcome-right { color: rgba(255,255,255,0.7); }
-[data-theme="business"] .dashboard-home .stat-card { background: #fff; border-color: #dde4ed; }
-[data-theme="business"] .dashboard-home .stat-card .stat-label { color: #8a9bb0; }
-[data-theme="business"] .dashboard-home .widget-grid .widget-card { background: #fff; border-color: #dde4ed; }
-[data-theme="business"] .dashboard-home .widget-grid .widget-card .widget-title { color: #1a2a3a; }
-[data-theme="business"] .dashboard-home .widget-grid .widget-card .widget-body { color: #5a6d80; }
-[data-theme="business"] .btn-o { border-color: #dde4ed; color: #1a2a3a; }
-[data-theme="business"] .btn-o:hover { background: #eef3f8; }
-[data-theme="business"] .modal-overlay { background: rgba(26,42,58,0.5); }
-[data-theme="business"] .modal-box { background: #fff; }
-[data-theme="business"] .modal-box h3 { color: #1a2a3a; }
-[data-theme="business"] .modal-box .modal-label { color: #5a6d80; }
-[data-theme="business"] .modal-box input, [data-theme="business"] .modal-box textarea, [data-theme="business"] .modal-box select { background: #f7f9fc; color: #1a2a3a; border-color: #dde4ed; }
-[data-theme="business"] .pagination .page-btn, [data-theme="business"] .dealer-pagination .page-btn { background: #fff; border-color: #dde4ed; color: #1a2a3a; }
-[data-theme="business"] .ma { background: #f7f9fc; border-color: #dde4ed; }
-[data-theme="business"] .mt { color: #1a2a3a; }
-[data-theme="business"] .live-result-box { background: #f7f9fc; border-color: #dde4ed; color: #1a2a3a; }
-[data-theme="business"] .auth-page { background: linear-gradient(135deg,#1e3a5f,#2d5a8e); }
-[data-theme="business"] .auth-card { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); box-shadow: 0 30px 80px rgba(0,0,0,0.4); }
-[data-theme="business"] .auth-brand h1 { color: #fff; }
-[data-theme="business"] .auth-brand .sub { color: rgba(255,255,255,0.5); }
-[data-theme="business"] .auth-form .form-group label { color: rgba(255,255,255,0.55); }
-[data-theme="business"] .auth-form .form-group input { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); color: #fff; }
-[data-theme="business"] .auth-form .form-group input:focus { border-color: rgba(59,130,246,0.6); background: rgba(255,255,255,0.1); }
-[data-theme="business"] .auth-form .form-group select { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); color: #fff; }
-[data-theme="business"] .auth-form .form-group select option { background: #1e3a5f; color: #fff; }
-[data-theme="business"] .auth-btn { background: linear-gradient(135deg,#1a56db,#3b82f6); }
-[data-theme="business"] .auth-btn:hover { box-shadow: 0 8px 32px rgba(26,86,219,0.35); }
-[data-theme="business"] .auth-footer { color: rgba(255,255,255,0.35); }
-[data-theme="business"] .auth-footer a { color: rgba(255,255,255,0.5); }
-[data-theme="business"] .auth-footer a:hover { color: rgba(255,255,255,0.7); }
-[data-theme="business"] .question-area { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
-[data-theme="business"] .question-area .q-text { color: #fff; }
-[data-theme="business"] .question-area .q-hint { color: rgba(255,255,255,0.3); }
-[data-theme="business"] .gate-page { background: linear-gradient(135deg,#1e3a5f,#2d5a8e); }
-[data-theme="business"] .gate-card { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); }
-[data-theme="business"] .gate-card h2 { color: #fff; }
-[data-theme="business"] .gate-card .sub { color: rgba(255,255,255,0.5); }
-[data-theme="business"] .gate-card input { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); color: #fff; }
-[data-theme="business"] .gate-card input:focus { border-color: rgba(59,130,246,0.6); }
-[data-theme="business"] .gate-card .gate-btn { background: linear-gradient(135deg,#1a56db,#3b82f6); }
-[data-theme="business"] .toggle-switch-label { color: rgba(255,255,255,0.55); }
-
-/* --- 科技风 --- */
-[data-theme="tech"] body { background: #0a0e1a; }
-[data-theme="tech"] .sidebar { background: #0d1321; color: #e2e8f0; }
-[data-theme="tech"] .sidebar-header { border-bottom-color: #1e293b; }
-[data-theme="tech"] .sidebar-header .brand .brand-name { color: #e2e8f0; }
-[data-theme="tech"] .di { color: #94a3b8; }
-[data-theme="tech"] .di:hover { background: rgba(14,165,233,0.08); color: #e2e8f0; }
-[data-theme="tech"] .di.act { background: rgba(14,165,233,0.12); color: #e2e8f0; border-left-color: #06d6a0; }
-[data-theme="tech"] .gl { color: #64748b; }
-[data-theme="tech"] .sd-search input { background: #1a2235; color: #e2e8f0; border-color: #1e293b; }
-[data-theme="tech"] .mh { background: #111827; border-bottom-color: #1e293b; }
-[data-theme="tech"] .mh h2 { color: #e2e8f0; }
-[data-theme="tech"] .mh .user-info { color: #94a3b8; }
-[data-theme="tech"] .mh .user-info .user-name { color: #e2e8f0; }
-[data-theme="tech"] .mh .user-info .logout-btn { color: #94a3b8; border-color: #1e293b; }
-[data-theme="tech"] .mh .user-info .logout-btn:hover { background: rgba(239,68,68,0.1); border-color: #ef4444; color: #ef4444; }
-[data-theme="tech"] .mb { background: #0a0e1a; }
-[data-theme="tech"] .card { background: #111827; box-shadow: 0 1px 3px rgba(6,214,160,0.04); border: 1px solid #1e293b; }
-[data-theme="tech"] .ct { color: #e2e8f0; }
-[data-theme="tech"] .fg label { color: #94a3b8; }
-[data-theme="tech"] .fg input, [data-theme="tech"] .fg textarea, [data-theme="tech"] .fg select { background: #1a2235; color: #e2e8f0; border-color: #1e293b; }
-[data-theme="tech"] .fg input:focus, [data-theme="tech"] .fg textarea:focus, [data-theme="tech"] .fg select:focus { border-color: #06d6a0; }
-[data-theme="tech"] .filter-row, [data-theme="tech"] .batch-actions, [data-theme="tech"] .user-batch-toolbar, [data-theme="tech"] .dealer-mgr-toolbar, [data-theme="tech"] .user-mgr .add-user-row { background: #111827; border-color: #1e293b; }
-[data-theme="tech"] #tb th, [data-theme="tech"] .user-mgr .user-table th, [data-theme="tech"] .dealer-table-wrap th { background: #111827; color: #94a3b8; border-bottom-color: #1e293b; }
-[data-theme="tech"] #tb td, [data-theme="tech"] .user-mgr .user-table td, [data-theme="tech"] .dealer-table-wrap td { border-bottom-color: #1a2235; color: #e2e8f0; }
-[data-theme="tech"] .dealer-table-wrap td { border-color: #1e293b; }
-[data-theme="tech"] .dealer-table-wrap th { border-color: #1e293b; }
-[data-theme="tech"] .tbs { background: #1a2235; }
-[data-theme="tech"] .tb { color: #94a3b8; }
-[data-theme="tech"] .tb.act { background: #111827; color: #e2e8f0; }
-[data-theme="tech"] .user-mgr .add-user-row { border-style: dashed; border-color: #1e293b; }
-[data-theme="tech"] .dashboard-home .welcome { background: linear-gradient(135deg,#0f172a,#1e293b); color: #e2e8f0; border: 1px solid #1e293b; }
-[data-theme="tech"] .dashboard-home .welcome h2 { color: #e2e8f0; }
-[data-theme="tech"] .dashboard-home .welcome p { color: #94a3b8; }
-[data-theme="tech"] .dashboard-home .welcome .welcome-right { color: #64748b; }
-[data-theme="tech"] .dashboard-home .stat-card { background: #111827; border-color: #1e293b; }
-[data-theme="tech"] .dashboard-home .stat-card .stat-number { color: #e2e8f0; }
-[data-theme="tech"] .dashboard-home .stat-card .stat-label { color: #64748b; }
-[data-theme="tech"] .dashboard-home .widget-grid .widget-card { background: #111827; border-color: #1e293b; }
-[data-theme="tech"] .dashboard-home .widget-grid .widget-card .widget-title { color: #e2e8f0; }
-[data-theme="tech"] .dashboard-home .widget-grid .widget-card .widget-body { color: #94a3b8; }
-[data-theme="tech"] .btn-o { border-color: #1e293b; color: #e2e8f0; background: transparent; }
-[data-theme="tech"] .btn-o:hover { background: #1a2235; }
-[data-theme="tech"] .btn-p { background: #06d6a0; color: #0a0e1a; }
-[data-theme="tech"] .btn-p:hover { background: #05b88a; }
-[data-theme="tech"] .btn-s { background: #0ea5e9; color: #fff; }
-[data-theme="tech"] .btn-s:hover { background: #0284c7; }
-[data-theme="tech"] .modal-overlay { background: rgba(0,0,0,0.7); }
-[data-theme="tech"] .modal-box { background: #111827; border: 1px solid #1e293b; }
-[data-theme="tech"] .modal-box h3 { color: #e2e8f0; }
-[data-theme="tech"] .modal-box .modal-label { color: #94a3b8; }
-[data-theme="tech"] .modal-box input, [data-theme="tech"] .modal-box textarea, [data-theme="tech"] .modal-box select { background: #1a2235; color: #e2e8f0; border-color: #1e293b; }
-[data-theme="tech"] .pagination .page-btn, [data-theme="tech"] .dealer-pagination .page-btn { background: #111827; border-color: #1e293b; color: #e2e8f0; }
-[data-theme="tech"] .pagination .page-btn.active { background: #06d6a0; color: #0a0e1a; border-color: #06d6a0; }
-[data-theme="tech"] .dealer-pagination .page-btn.active { background: #06d6a0; color: #0a0e1a; border-color: #06d6a0; }
-[data-theme="tech"] .ma { background: #1a2235; border-color: #1e293b; }
-[data-theme="tech"] .mt { color: #e2e8f0; }
-[data-theme="tech"] .live-result-box { background: #1a2235; border-color: #1e293b; color: #e2e8f0; }
-[data-theme="tech"] .live-check-item { color: #94a3b8; }
-[data-theme="tech"] .live-check-item:hover { background: #1a2235; }
-[data-theme="tech"] .dealer-mgr-toolbar .search-box { background: #1a2235; border-color: #1e293b; color: #e2e8f0; }
-[data-theme="tech"] .dealer-mgr-toolbar .group-filter-btn { background: #1a2235; border-color: #1e293b; color: #94a3b8; }
-[data-theme="tech"] .dealer-mgr-toolbar .group-filter-btn.active { background: #06d6a0; color: #0a0e1a; border-color: #06d6a0; }
-[data-theme="tech"] .dealer-mgr-toolbar .sort-btn { background: #1a2235; border-color: #1e293b; color: #94a3b8; }
-[data-theme="tech"] .batch-mode-bar { background: rgba(6,214,160,0.08); border-bottom-color: rgba(6,214,160,0.15); }
-[data-theme="tech"] .auth-page { background: radial-gradient(ellipse at 50% 30%,#0f172a,#020617); }
-[data-theme="tech"] .auth-card { background: rgba(14,165,233,0.05); border-color: rgba(6,214,160,0.15); }
-[data-theme="tech"] .auth-brand h1 { color: #06d6a0; }
-[data-theme="tech"] .auth-brand .sub { color: #64748b; }
-[data-theme="tech"] .auth-brand .mode-tag { background: rgba(6,214,160,0.15); color: #06d6a0; border-color: rgba(6,214,160,0.2); }
-[data-theme="tech"] .auth-form .form-group label { color: #64748b; }
-[data-theme="tech"] .auth-form .form-group input { background: rgba(14,165,233,0.04); border-color: rgba(6,214,160,0.15); color: #e2e8f0; }
-[data-theme="tech"] .auth-form .form-group input:focus { border-color: rgba(6,214,160,0.5); background: rgba(14,165,233,0.08); }
-[data-theme="tech"] .auth-form .form-group select { background: rgba(14,165,233,0.04); border-color: rgba(6,214,160,0.15); color: #e2e8f0; }
-[data-theme="tech"] .auth-form .form-group select option { background: #0f172a; color: #e2e8f0; }
-[data-theme="tech"] .auth-btn { background: linear-gradient(135deg,#06d6a0,#0ea5e9); color: #0a0e1a; }
-[data-theme="tech"] .auth-btn:hover { box-shadow: 0 8px 32px rgba(6,214,160,0.3); }
-[data-theme="tech"] .auth-footer { color: #64748b; }
-[data-theme="tech"] .auth-footer a { color: #64748b; }
-[data-theme="tech"] .auth-footer a:hover { color: #06d6a0; }
-[data-theme="tech"] .question-area { background: rgba(14,165,233,0.04); border-color: rgba(6,214,160,0.1); }
-[data-theme="tech"] .question-area .q-text { color: #e2e8f0; }
-[data-theme="tech"] .question-area .q-hint { color: #64748b; }
-[data-theme="tech"] .gate-page { background: radial-gradient(ellipse at 50% 30%,#0f172a,#020617); }
-[data-theme="tech"] .gate-card { background: rgba(14,165,233,0.05); border-color: rgba(6,214,160,0.15); }
-[data-theme="tech"] .gate-card h2 { color: #06d6a0; }
-[data-theme="tech"] .gate-card .sub { color: #64748b; }
-[data-theme="tech"] .gate-card input { background: rgba(14,165,233,0.04); border-color: rgba(6,214,160,0.15); color: #e2e8f0; }
-[data-theme="tech"] .gate-card input:focus { border-color: #06d6a0; }
-[data-theme="tech"] .gate-card .gate-btn { background: linear-gradient(135deg,#06d6a0,#0ea5e9); color: #0a0e1a; }
-[data-theme="tech"] .dealer-table-wrap table { border-color: #1e293b; }
-[data-theme="tech"] .bsvip { background: #06d6a0; color: #0a0e1a; }
-[data-theme="tech"] .toggle-switch-label { color: #94a3b8; }
-
-/* ===== Loading Animations ===== */
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-@keyframes savePulse { 0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.4); } 70% { box-shadow: 0 0 0 10px rgba(16,185,129,0); } 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); } }
-
-.auth-btn.loading { position: relative; pointer-events: none; opacity: 0.7; }
-.auth-btn.loading::after { content: ''; display: inline-block; width: 14px; height: 14px; border: 2px solid transparent; border-top-color: currentColor; border-radius: 50%; animation: spin 0.6s linear infinite; margin-left: 6px; vertical-align: middle; }
-
-.save-pulse { animation: savePulse 0.6s ease; }
-
-.card.fade-in, .stat-card.fade-in, .widget-card.fade-in { animation: fadeInUp 0.25s ease both; }
-
-.btn, .di, .tb, .quick-btn, .group-filter-btn, .sort-btn, .page-btn { transition: all 0.15s ease; }
-
-/* ===== Theme Switcher UI ===== */
-.theme-switcher { position: relative; display: inline-flex; align-items: center; }
-.theme-btn-theme { width: 32px; height: 32px; border-radius: 6px; border: 1px solid transparent; cursor: pointer; transition: all 0.15s; padding: 0; font-size: 16px; display: flex; align-items: center; justify-content: center; background: transparent; }
-.theme-btn-theme:hover { transform: scale(1.1); background: rgba(128,128,128,0.1); }
-.theme-panel { display: none; position: absolute; top: 38px; right: 0; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 9999; min-width: 190px; }
-.theme-panel.show { display: block; }
-[data-theme="tech"] .theme-panel { background: #111827; border-color: #1e293b; }
-.theme-panel-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 5px; cursor: pointer; font-size: 12px; color: #374151; transition: background 0.12s; border: none; background: none; width: 100%; text-align: left; }
-.theme-panel-item:hover { background: #f3f4f6; }
-.theme-panel-item.active { background: #eff6ff; font-weight: 600; color: #2563eb; }
-[data-theme="tech"] .theme-panel-item { color: #e2e8f0; }
-[data-theme="tech"] .theme-panel-item:hover { background: #1a2235; }
-[data-theme="tech"] .theme-panel-item.active { background: rgba(6,214,160,0.12); color: #06d6a0; }
-.theme-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.1); }
-.theme-dot.dark-dot { background: #1a2332; }
-.theme-dot.light-dot { background: #fbfbfa; }
-.theme-dot.warm-dot { background: #fef9f2; }
-.theme-dot.green-dot { background: #f2f7f4; }
-.theme-dot.biz-dot { background: #1e3a5f; }
-.theme-dot.tech-dot { background: #0a0e1a; border-color: #06d6a0; }
-
-/* ===== Mobile Responsive ===== */
-.mobile-menu-btn { display: none; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; cursor: pointer; font-size: 18px; color: #374151; padding: 0; }
-.sidebar-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 998; }
-
-@media (max-width: 768px) {
-    .mobile-menu-btn { display: flex; }
-    .sidebar { position: fixed; left: -240px; top: 0; bottom: 0; z-index: 999; transition: left 0.25s ease; width: 240px; min-width: 240px; }
-    .sidebar.open { left: 0; }
-    .sidebar-overlay.show { display: block; }
-    .mb { padding: 10px 10px; }
-    .card { padding: 10px 10px; }
-    .mh { padding: 8px 10px; }
-    .mh .user-info { font-size: 10px; gap: 4px; }
-    .mh h2 { font-size: 12px; }
-    .btn { padding: 6px 12px; font-size: 11px; min-height: 36px; }
-    .btn-sm { padding: 4px 8px; font-size: 10px; min-height: 30px; }
-    .fg input, .fg select, .fg textarea { font-size: 13px; padding: 7px 8px; }
-    #tb, .dealer-table-wrap, .user-mgr .user-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .dashboard-home .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-    .dashboard-home .stat-card { padding: 12px 14px; }
-    .dashboard-home .stat-card .stat-number { font-size: 22px; }
-    .dashboard-home .widget-grid { grid-template-columns: 1fr; gap: 10px; }
-    .dashboard-home .welcome { flex-direction: column; text-align: center; padding: 16px; }
-    .dashboard-home .welcome .welcome-right { text-align: center; }
-    .live-check-grid { grid-template-columns: 1fr; }
-    .auth-card { padding: 28px 20px 24px; }
-    .gate-card { padding: 32px 24px 28px; }
-    .fr { flex-direction: column; gap: 4px; }
-    .fg { min-width: auto; }
-    .user-mgr .add-user-row { flex-direction: column; }
-    .user-mgr .add-user-row .fg { min-width: auto; }
-    .perm-check-group { grid-template-columns: 1fr; }
-    .dealer-mgr-toolbar { flex-direction: column; align-items: stretch; }
-    .dealer-mgr-toolbar .search-box { min-width: auto; }
-    .filter-row { flex-direction: column; align-items: stretch; }
-    .live-action-bar { flex-wrap: wrap; gap: 4px; }
-    .live-action-bar .btn { font-size: 10px; padding: 5px 8px; }
-    #tb th, #tb td { padding: 4px 5px; font-size: 10px; }
-    .user-mgr .user-table th, .user-mgr .user-table td { padding: 3px 4px; font-size: 9px; }
-    .modal-box { padding: 16px 16px; max-width: 95%; }
-    .modal-box h3 { font-size: 14px; }
+/*=== Themes ===*/
+/* Light */
+[data-theme="light"] body{background:#fbfbfa}
+[data-theme="light"] .sidebar{background:#f7f6f3;color:#37352f}
+[data-theme="light"] .sidebar-header{border-bottom-color:#e9e9e7}
+[data-theme="light"] .sidebar-header .brand .brand-name{color:#37352f}
+[data-theme="light"] .di{color:#6b6966}
+[data-theme="light"] .di:hover{background:rgba(0,0,0,.03);color:#37352f}
+[data-theme="light"] .di.act{background:rgba(0,0,0,.05);color:#37352f;border-left-color:#37352f}
+[data-theme="light"] .gl{color:#b4b2ad}
+[data-theme="light"] .sd-search input{background:#fff;color:#37352f;border-color:#e9e9e7}
+[data-theme="light"] .mh{background:#fff;border-bottom-color:#e9e9e7}
+[data-theme="light"] .mh h2{color:#37352f}
+[data-theme="light"] .mh .user-info{color:#9b9a97}
+[data-theme="light"] .mh .user-info .user-name{color:#37352f}
+[data-theme="light"] .mb{background:#fbfbfa}
+[data-theme="light"] .card{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.02);border:1px solid #e9e9e7}
+[data-theme="light"] .ct{color:#37352f}
+[data-theme="light"] .fg label{color:#9b9a97}
+[data-theme="light"] .fg input,.fg textarea,.fg select{background:#fff;color:#37352f;border-color:#e9e9e7}
+[data-theme="light"] .filter-row,[data-theme="light"] .batch-actions,[data-theme="light"] .user-batch-toolbar,[data-theme="light"] .dealer-mgr-toolbar,[data-theme="light"] .user-mgr .add-user-row{background:#fbfbfa;border-color:#e9e9e7}
+[data-theme="light"] #tb th,[data-theme="light"] .user-mgr .user-table th,[data-theme="light"] .dealer-table-wrap th{background:#fbfbfa;color:#9b9a97;border-bottom-color:#e9e9e7}
+[data-theme="light"] #tb td,[data-theme="light"] .user-mgr .user-table td,[data-theme="light"] .dealer-table-wrap td{border-bottom-color:#f0efed}
+[data-theme="light"] .tbs{background:#f7f6f3}
+[data-theme="light"] .tb{color:#6b6966}
+[data-theme="light"] .tb.act{background:#fff;color:#37352f}
+[data-theme="light"] .dashboard-home .welcome{background:#f7f6f3;color:#37352f;border:1px solid #e9e9e7}
+[data-theme="light"] .dashboard-home .welcome h2{color:#37352f}
+[data-theme="light"] .dashboard-home .welcome p{color:#6b6966}
+[data-theme="light"] .dashboard-home .welcome .welcome-right{color:#9b9a97}
+[data-theme="light"] .dashboard-home .stat-card{background:#fff;border-color:#e9e9e7}
+[data-theme="light"] .dashboard-home .stat-card .stat-label{color:#9b9a97}
+[data-theme="light"] .dashboard-home .widget-grid .widget-card{background:#fff;border-color:#e9e9e7}
+[data-theme="light"] .dashboard-home .widget-grid .widget-card .widget-title{color:#37352f}
+[data-theme="light"] .dashboard-home .widget-grid .widget-card .widget-body{color:#6b6966}
+[data-theme="light"] .btn-o{border-color:#e9e9e7;color:#37352f}
+[data-theme="light"] .btn-o:hover{background:#f7f6f3}
+[data-theme="light"] .modal-overlay{background:rgba(0,0,0,.3)}
+[data-theme="light"] .modal-box{background:#fff}
+[data-theme="light"] .modal-box h3{color:#37352f}
+[data-theme="light"] .modal-box .modal-label{color:#9b9a97}
+[data-theme="light"] .modal-box input,[data-theme="light"] .modal-box textarea,[data-theme="light"] .modal-box select{background:#fbfbfa;color:#37352f;border-color:#e9e9e7}
+[data-theme="light"] .pagination .page-btn,[data-theme="light"] .dealer-pagination .page-btn{background:#fff;border-color:#e9e9e7;color:#37352f}
+[data-theme="light"] .ma{background:#fbfbfa;border-color:#e9e9e7}
+[data-theme="light"] .mt{color:#37352f}
+[data-theme="light"] .live-result-box{background:#fbfbfa;border-color:#e9e9e7;color:#37352f}
+[data-theme="light"] .auth-page{background:#fbfbfa}
+[data-theme="light"] .auth-card{background:#fff;border-color:#e9e9e7;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+[data-theme="light"] .auth-brand h1{color:#37352f}
+[data-theme="light"] .auth-brand .sub{color:#b4b2ad}
+[data-theme="light"] .auth-form .form-group label{color:#9b9a97}
+[data-theme="light"] .auth-form .form-group input{background:#fbfbfa;border-color:#e9e9e7;color:#37352f}
+[data-theme="light"] .auth-form .form-group input:focus{border-color:#37352f;background:#fff}
+[data-theme="light"] .auth-form .form-group select{background:#fbfbfa;border-color:#e9e9e7;color:#37352f}
+[data-theme="light"] .auth-form .form-group select option{background:#fff;color:#37352f}
+[data-theme="light"] .auth-btn{background:#37352f}
+[data-theme="light"] .auth-btn:hover{box-shadow:0 8px 32px rgba(0,0,0,.15)}
+[data-theme="light"] .auth-footer{color:#b4b2ad}
+[data-theme="light"] .auth-footer a{color:#9b9a97}
+[data-theme="light"] .auth-footer a:hover{color:#37352f}
+[data-theme="light"] .question-area{background:#f7f6f3;border-color:#e9e9e7}
+[data-theme="light"] .question-area .q-text{color:#37352f}
+[data-theme="light"] .question-area .q-hint{color:#b4b2ad}
+[data-theme="light"] .gate-page{background:#fbfbfa}
+[data-theme="light"] .gate-card{background:#fff;border-color:#e9e9e7;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+[data-theme="light"] .gate-card h2{color:#37352f}
+[data-theme="light"] .gate-card .sub{color:#b4b2ad}
+[data-theme="light"] .gate-card input{background:#fbfbfa;border-color:#e9e9e7;color:#37352f}
+[data-theme="light"] .gate-card input:focus{border-color:#cc0000;background:#fff}
+[data-theme="light"] .gate-card .gate-btn{background:#cc0000}
+[data-theme="light"] .toggle-switch-label{color:#6b6966}
+/* Warm */
+[data-theme="warm"] body{background:#fef9f2}
+[data-theme="warm"] .sidebar{background:#f5ede0;color:#5c4a3a}
+[data-theme="warm"] .sidebar-header{border-bottom-color:#e8dcc8}
+[data-theme="warm"] .sidebar-header .brand .brand-name{color:#5c4a3a}
+[data-theme="warm"] .di{color:#8b7355}
+[data-theme="warm"] .di:hover{background:rgba(180,140,100,.1);color:#5c4a3a}
+[data-theme="warm"] .di.act{background:rgba(180,140,100,.15);color:#5c4a3a;border-left-color:#c0392b}
+[data-theme="warm"] .gl{color:#b8a088}
+[data-theme="warm"] .sd-search input{background:#fffbf5;color:#5c4a3a;border-color:#e8dcc8}
+[data-theme="warm"] .mh{background:#fffbf5;border-bottom-color:#e8dcc8}
+[data-theme="warm"] .mh h2{color:#5c4a3a}
+[data-theme="warm"] .mh .user-info{color:#8b7355}
+[data-theme="warm"] .mh .user-info .user-name{color:#5c4a3a}
+[data-theme="warm"] .mb{background:#fef9f2}
+[data-theme="warm"] .card{background:#fffbf5;box-shadow:0 1px 3px rgba(92,74,58,.05);border:1px solid #e8dcc8}
+[data-theme="warm"] .ct{color:#5c4a3a}
+[data-theme="warm"] .fg label{color:#8b7355}
+[data-theme="warm"] .fg input,.fg textarea,.fg select{background:#fffbf5;color:#5c4a3a;border-color:#e8dcc8}
+[data-theme="warm"] .filter-row,[data-theme="warm"] .batch-actions,[data-theme="warm"] .user-batch-toolbar,[data-theme="warm"] .dealer-mgr-toolbar,[data-theme="warm"] .user-mgr .add-user-row{background:#fdf6ec;border-color:#e8dcc8}
+[data-theme="warm"] #tb th,[data-theme="warm"] .user-mgr .user-table th,[data-theme="warm"] .dealer-table-wrap th{background:#fdf6ec;color:#8b7355;border-bottom-color:#e8dcc8}
+[data-theme="warm"] #tb td,[data-theme="warm"] .user-mgr .user-table td,[data-theme="warm"] .dealer-table-wrap td{border-bottom-color:#f0e8d5}
+[data-theme="warm"] .tbs{background:#faf3e6}
+[data-theme="warm"] .tb{color:#8b7355}
+[data-theme="warm"] .tb.act{background:#fffbf5;color:#5c4a3a}
+[data-theme="warm"] .dashboard-home .welcome{background:linear-gradient(135deg,#5c4a3a,#8b7355);color:#fff}
+[data-theme="warm"] .dashboard-home .welcome h2{color:#fff}
+[data-theme="warm"] .dashboard-home .welcome p{color:rgba(255,255,255,.85)}
+[data-theme="warm"] .dashboard-home .welcome .welcome-right{color:rgba(255,255,255,.7)}
+[data-theme="warm"] .dashboard-home .stat-card{background:#fffbf5;border-color:#e8dcc8}
+[data-theme="warm"] .dashboard-home .stat-card .stat-label{color:#b8a088}
+[data-theme="warm"] .dashboard-home .widget-grid .widget-card{background:#fffbf5;border-color:#e8dcc8}
+[data-theme="warm"] .dashboard-home .widget-grid .widget-card .widget-title{color:#5c4a3a}
+[data-theme="warm"] .dashboard-home .widget-grid .widget-card .widget-body{color:#8b7355}
+[data-theme="warm"] .btn-o{border-color:#e8dcc8;color:#5c4a3a}
+[data-theme="warm"] .btn-o:hover{background:#faf3e6}
+[data-theme="warm"] .modal-overlay{background:rgba(92,74,58,.4)}
+[data-theme="warm"] .modal-box{background:#fffbf5}
+[data-theme="warm"] .modal-box h3{color:#5c4a3a}
+[data-theme="warm"] .modal-box .modal-label{color:#8b7355}
+[data-theme="warm"] .modal-box input,[data-theme="warm"] .modal-box textarea,[data-theme="warm"] .modal-box select{background:#fef9f2;color:#5c4a3a;border-color:#e8dcc8}
+[data-theme="warm"] .pagination .page-btn,[data-theme="warm"] .dealer-pagination .page-btn{background:#fffbf5;border-color:#e8dcc8;color:#5c4a3a}
+[data-theme="warm"] .ma{background:#fef9f2;border-color:#e8dcc8}
+[data-theme="warm"] .mt{color:#5c4a3a}
+[data-theme="warm"] .live-result-box{background:#fef9f2;border-color:#e8dcc8;color:#5c4a3a}
+[data-theme="warm"] .auth-page{background:#fef9f2}
+[data-theme="warm"] .auth-card{background:#fffbf5;border-color:#e8dcc8;box-shadow:0 4px 20px rgba(92,74,58,.1)}
+[data-theme="warm"] .auth-brand h1{color:#5c4a3a}
+[data-theme="warm"] .auth-brand .sub{color:#b8a088}
+[data-theme="warm"] .auth-form .form-group label{color:#8b7355}
+[data-theme="warm"] .auth-form .form-group input{background:#fef9f2;border-color:#e8dcc8;color:#5c4a3a}
+[data-theme="warm"] .auth-form .form-group input:focus{border-color:#c0392b;background:#fffbf5}
+[data-theme="warm"] .auth-form .form-group select{background:#fef9f2;border-color:#e8dcc8;color:#5c4a3a}
+[data-theme="warm"] .auth-form .form-group select option{background:#fffbf5;color:#5c4a3a}
+[data-theme="warm"] .auth-btn{background:linear-gradient(135deg,#c0392b,#e74c3c)}
+[data-theme="warm"] .auth-btn:hover{box-shadow:0 8px 32px rgba(192,57,43,.3)}
+[data-theme="warm"] .auth-footer{color:#b8a088}
+[data-theme="warm"] .auth-footer a{color:#b8a088}
+[data-theme="warm"] .auth-footer a:hover{color:#5c4a3a}
+[data-theme="warm"] .question-area{background:#faf3e6;border-color:#e8dcc8}
+[data-theme="warm"] .question-area .q-text{color:#5c4a3a}
+[data-theme="warm"] .question-area .q-hint{color:#b8a088}
+[data-theme="warm"] .gate-page{background:#fef9f2}
+[data-theme="warm"] .gate-card{background:#fffbf5;border-color:#e8dcc8;box-shadow:0 4px 20px rgba(92,74,58,.1)}
+[data-theme="warm"] .gate-card h2{color:#5c4a3a}
+[data-theme="warm"] .gate-card .sub{color:#b8a088}
+[data-theme="warm"] .gate-card input{background:#fef9f2;border-color:#e8dcc8;color:#5c4a3a}
+[data-theme="warm"] .gate-card input:focus{border-color:#c0392b;background:#fffbf5}
+[data-theme="warm"] .gate-card .gate-btn{background:linear-gradient(135deg,#c0392b,#e74c3c)}
+[data-theme="warm"] .toggle-switch-label{color:#8b7355}
+/* Green */
+[data-theme="green"] body{background:#f2f7f4}
+[data-theme="green"] .sidebar{background:#e8f0eb;color:#2d4a3e}
+[data-theme="green"] .sidebar-header{border-bottom-color:#d0e0d5}
+[data-theme="green"] .sidebar-header .brand .brand-name{color:#2d4a3e}
+[data-theme="green"] .di{color:#5a7d6a}
+[data-theme="green"] .di:hover{background:rgba(76,175,80,.08);color:#2d4a3e}
+[data-theme="green"] .di.act{background:rgba(76,175,80,.12);color:#2d4a3e;border-left-color:#2e7d52}
+[data-theme="green"] .gl{color:#8faa98}
+[data-theme="green"] .sd-search input{background:#fff;color:#2d4a3e;border-color:#d0e0d5}
+[data-theme="green"] .mh{background:#fff;border-bottom-color:#d0e0d5}
+[data-theme="green"] .mh h2{color:#2d4a3e}
+[data-theme="green"] .mh .user-info{color:#5a7d6a}
+[data-theme="green"] .mh .user-info .user-name{color:#2d4a3e}
+[data-theme="green"] .mb{background:#f2f7f4}
+[data-theme="green"] .card{background:#fff;box-shadow:0 1px 2px rgba(45,74,62,.04);border:1px solid #d0e0d5}
+[data-theme="green"] .ct{color:#2d4a3e}
+[data-theme="green"] .fg label{color:#5a7d6a}
+[data-theme="green"] .fg input,.fg textarea,.fg select{background:#fff;color:#2d4a3e;border-color:#d0e0d5}
+[data-theme="green"] .filter-row,[data-theme="green"] .batch-actions,[data-theme="green"] .user-batch-toolbar,[data-theme="green"] .dealer-mgr-toolbar,[data-theme="green"] .user-mgr .add-user-row{background:#f5faf6;border-color:#d0e0d5}
+[data-theme="green"] #tb th,[data-theme="green"] .user-mgr .user-table th,[data-theme="green"] .dealer-table-wrap th{background:#f5faf6;color:#5a7d6a;border-bottom-color:#d0e0d5}
+[data-theme="green"] #tb td,[data-theme="green"] .user-mgr .user-table td,[data-theme="green"] .dealer-table-wrap td{border-bottom-color:#e0ece4}
+[data-theme="green"] .tbs{background:#eaf2ed}
+[data-theme="green"] .tb{color:#5a7d6a}
+[data-theme="green"] .tb.act{background:#fff;color:#2d4a3e}
+[data-theme="green"] .dashboard-home .welcome{background:linear-gradient(135deg,#2d4a3e,#3d6b54);color:#fff}
+[data-theme="green"] .dashboard-home .welcome h2{color:#fff}
+[data-theme="green"] .dashboard-home .welcome p{color:rgba(255,255,255,.85)}
+[data-theme="green"] .dashboard-home .welcome .welcome-right{color:rgba(255,255,255,.7)}
+[data-theme="green"] .dashboard-home .stat-card{background:#fff;border-color:#d0e0d5}
+[data-theme="green"] .dashboard-home .stat-card .stat-label{color:#8faa98}
+[data-theme="green"] .dashboard-home .widget-grid .widget-card{background:#fff;border-color:#d0e0d5}
+[data-theme="green"] .dashboard-home .widget-grid .widget-card .widget-title{color:#2d4a3e}
+[data-theme="green"] .dashboard-home .widget-grid .widget-card .widget-body{color:#5a7d6a}
+[data-theme="green"] .btn-o{border-color:#d0e0d5;color:#2d4a3e}
+[data-theme="green"] .btn-o:hover{background:#eaf2ed}
+[data-theme="green"] .modal-overlay{background:rgba(45,74,62,.4)}
+[data-theme="green"] .modal-box{background:#fff}
+[data-theme="green"] .modal-box h3{color:#2d4a3e}
+[data-theme="green"] .modal-box .modal-label{color:#5a7d6a}
+[data-theme="green"] .modal-box input,[data-theme="green"] .modal-box textarea,[data-theme="green"] .modal-box select{background:#f5faf6;color:#2d4a3e;border-color:#d0e0d5}
+[data-theme="green"] .pagination .page-btn,[data-theme="green"] .dealer-pagination .page-btn{background:#fff;border-color:#d0e0d5;color:#2d4a3e}
+[data-theme="green"] .ma{background:#f5faf6;border-color:#d0e0d5}
+[data-theme="green"] .mt{color:#2d4a3e}
+[data-theme="green"] .live-result-box{background:#f5faf6;border-color:#d0e0d5;color:#2d4a3e}
+[data-theme="green"] .auth-page{background:#f2f7f4}
+[data-theme="green"] .auth-card{background:#fff;border-color:#d0e0d5;box-shadow:0 4px 20px rgba(45,74,62,.08)}
+[data-theme="green"] .auth-brand h1{color:#2d4a3e}
+[data-theme="green"] .auth-brand .sub{color:#8faa98}
+[data-theme="green"] .auth-brand .mode-tag{background:#e8f5ee;color:#2e7d52;border-color:rgba(46,125,82,.15)}
+[data-theme="green"] .auth-form .form-group label{color:#5a7d6a}
+[data-theme="green"] .auth-form .form-group input{background:#f5faf6;border-color:#d0e0d5;color:#2d4a3e}
+[data-theme="green"] .auth-form .form-group input:focus{border-color:#2e7d52;background:#fff}
+[data-theme="green"] .auth-form .form-group select{background:#f5faf6;border-color:#d0e0d5;color:#2d4a3e}
+[data-theme="green"] .auth-form .form-group select option{background:#fff;color:#2d4a3e}
+[data-theme="green"] .auth-btn{background:linear-gradient(135deg,#2e7d52,#43a047)}
+[data-theme="green"] .auth-btn:hover{box-shadow:0 8px 32px rgba(46,125,82,.3)}
+[data-theme="green"] .auth-footer{color:#8faa98}
+[data-theme="green"] .auth-footer a{color:#8faa98}
+[data-theme="green"] .auth-footer a:hover{color:#2d4a3e}
+[data-theme="green"] .question-area{background:#eaf2ed;border-color:#d0e0d5}
+[data-theme="green"] .question-area .q-text{color:#2d4a3e}
+[data-theme="green"] .question-area .q-hint{color:#8faa98}
+[data-theme="green"] .gate-page{background:#f2f7f4}
+[data-theme="green"] .gate-card{background:#fff;border-color:#d0e0d5;box-shadow:0 4px 20px rgba(45,74,62,.08)}
+[data-theme="green"] .gate-card h2{color:#2d4a3e}
+[data-theme="green"] .gate-card .sub{color:#8faa98}
+[data-theme="green"] .gate-card input{background:#f5faf6;border-color:#d0e0d5;color:#2d4a3e}
+[data-theme="green"] .gate-card input:focus{border-color:#2e7d52;background:#fff}
+[data-theme="green"] .gate-card .gate-btn{background:linear-gradient(135deg,#2e7d52,#43a047)}
+[data-theme="green"] .toggle-switch-label{color:#5a7d6a}
+/* Business */
+[data-theme="business"] body{background:#f4f7fb}
+[data-theme="business"] .sidebar{background:#1e3a5f;color:#fff}
+[data-theme="business"] .sidebar-header{border-bottom-color:rgba(255,255,255,.1)}
+[data-theme="business"] .sidebar-header .brand .brand-name{color:#fff}
+[data-theme="business"] .di{color:rgba(255,255,255,.55)}
+[data-theme="business"] .di:hover{background:rgba(255,255,255,.06);color:#fff}
+[data-theme="business"] .di.act{background:rgba(255,255,255,.1);color:#fff;border-left-color:#3b82f6}
+[data-theme="business"] .gl{color:rgba(255,255,255,.35)}
+[data-theme="business"] .sd-search input{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.1)}
+[data-theme="business"] .mh{background:#fff;border-bottom-color:#dde4ed}
+[data-theme="business"] .mh h2{color:#1a2a3a}
+[data-theme="business"] .mh .user-info{color:#5a6d80}
+[data-theme="business"] .mh .user-info .user-name{color:#1a2a3a}
+[data-theme="business"] .mb{background:#f4f7fb}
+[data-theme="business"] .card{background:#fff;box-shadow:0 1px 3px rgba(26,42,58,.04);border:1px solid #dde4ed}
+[data-theme="business"] .ct{color:#1a2a3a}
+[data-theme="business"] .fg label{color:#5a6d80}
+[data-theme="business"] .fg input,.fg textarea,.fg select{background:#fff;color:#1a2a3a;border-color:#dde4ed}
+[data-theme="business"] .filter-row,[data-theme="business"] .batch-actions,[data-theme="business"] .user-batch-toolbar,[data-theme="business"] .dealer-mgr-toolbar,[data-theme="business"] .user-mgr .add-user-row{background:#f7f9fc;border-color:#dde4ed}
+[data-theme="business"] #tb th,[data-theme="business"] .user-mgr .user-table th,[data-theme="business"] .dealer-table-wrap th{background:#f7f9fc;color:#5a6d80;border-bottom-color:#dde4ed}
+[data-theme="business"] #tb td,[data-theme="business"] .user-mgr .user-table td,[data-theme="business"] .dealer-table-wrap td{border-bottom-color:#edf1f6}
+[data-theme="business"] .tbs{background:#eef3f8}
+[data-theme="business"] .tb{color:#5a6d80}
+[data-theme="business"] .tb.act{background:#fff;color:#1a2a3a}
+[data-theme="business"] .dashboard-home .welcome{background:linear-gradient(135deg,#1e3a5f,#2d5a8e);color:#fff}
+[data-theme="business"] .dashboard-home .welcome h2{color:#fff}
+[data-theme="business"] .dashboard-home .welcome p{color:rgba(255,255,255,.85)}
+[data-theme="business"] .dashboard-home .welcome .welcome-right{color:rgba(255,255,255,.7)}
+[data-theme="business"] .dashboard-home .stat-card{background:#fff;border-color:#dde4ed}
+[data-theme="business"] .dashboard-home .stat-card .stat-label{color:#8a9bb0}
+[data-theme="business"] .dashboard-home .widget-grid .widget-card{background:#fff;border-color:#dde4ed}
+[data-theme="business"] .dashboard-home .widget-grid .widget-card .widget-title{color:#1a2a3a}
+[data-theme="business"] .dashboard-home .widget-grid .widget-card .widget-body{color:#5a6d80}
+[data-theme="business"] .btn-o{border-color:#dde4ed;color:#1a2a3a}
+[data-theme="business"] .btn-o:hover{background:#eef3f8}
+[data-theme="business"] .modal-overlay{background:rgba(26,42,58,.5)}
+[data-theme="business"] .modal-box{background:#fff}
+[data-theme="business"] .modal-box h3{color:#1a2a3a}
+[data-theme="business"] .modal-box .modal-label{color:#5a6d80}
+[data-theme="business"] .modal-box input,[data-theme="business"] .modal-box textarea,[data-theme="business"] .modal-box select{background:#f7f9fc;color:#1a2a3a;border-color:#dde4ed}
+[data-theme="business"] .pagination .page-btn,[data-theme="business"] .dealer-pagination .page-btn{background:#fff;border-color:#dde4ed;color:#1a2a3a}
+[data-theme="business"] .ma{background:#f7f9fc;border-color:#dde4ed}
+[data-theme="business"] .mt{color:#1a2a3a}
+[data-theme="business"] .live-result-box{background:#f7f9fc;border-color:#dde4ed;color:#1a2a3a}
+[data-theme="business"] .auth-page{background:linear-gradient(135deg,#1e3a5f,#2d5a8e)}
+[data-theme="business"] .auth-card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.4)}
+[data-theme="business"] .auth-brand h1{color:#fff}
+[data-theme="business"] .auth-brand .sub{color:rgba(255,255,255,.5)}
+[data-theme="business"] .auth-form .form-group label{color:rgba(255,255,255,.55)}
+[data-theme="business"] .auth-form .form-group input{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#fff}
+[data-theme="business"] .auth-form .form-group input:focus{border-color:rgba(59,130,246,.6);background:rgba(255,255,255,.1)}
+[data-theme="business"] .auth-form .form-group select{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#fff}
+[data-theme="business"] .auth-form .form-group select option{background:#1e3a5f;color:#fff}
+[data-theme="business"] .auth-btn{background:linear-gradient(135deg,#1a56db,#3b82f6)}
+[data-theme="business"] .auth-btn:hover{box-shadow:0 8px 32px rgba(26,86,219,.35)}
+[data-theme="business"] .auth-footer{color:rgba(255,255,255,.35)}
+[data-theme="business"] .auth-footer a{color:rgba(255,255,255,.5)}
+[data-theme="business"] .auth-footer a:hover{color:rgba(255,255,255,.7)}
+[data-theme="business"] .question-area{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+[data-theme="business"] .question-area .q-text{color:#fff}
+[data-theme="business"] .question-area .q-hint{color:rgba(255,255,255,.3)}
+[data-theme="business"] .gate-page{background:linear-gradient(135deg,#1e3a5f,#2d5a8e)}
+[data-theme="business"] .gate-card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)}
+[data-theme="business"] .gate-card h2{color:#fff}
+[data-theme="business"] .gate-card .sub{color:rgba(255,255,255,.5)}
+[data-theme="business"] .gate-card input{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#fff}
+[data-theme="business"] .gate-card input:focus{border-color:rgba(59,130,246,.6)}
+[data-theme="business"] .gate-card .gate-btn{background:linear-gradient(135deg,#1a56db,#3b82f6)}
+[data-theme="business"] .toggle-switch-label{color:rgba(255,255,255,.55)}
+/* Tech */
+[data-theme="tech"] body{background:#0a0e1a}
+[data-theme="tech"] .sidebar{background:#0d1321;color:#e2e8f0}
+[data-theme="tech"] .sidebar-header{border-bottom-color:#1e293b}
+[data-theme="tech"] .sidebar-header .brand .brand-name{color:#e2e8f0}
+[data-theme="tech"] .di{color:#94a3b8}
+[data-theme="tech"] .di:hover{background:rgba(14,165,233,.08);color:#e2e8f0}
+[data-theme="tech"] .di.act{background:rgba(14,165,233,.12);color:#e2e8f0;border-left-color:#06d6a0}
+[data-theme="tech"] .gl{color:#64748b}
+[data-theme="tech"] .sd-search input{background:#1a2235;color:#e2e8f0;border-color:#1e293b}
+[data-theme="tech"] .mh{background:#111827;border-bottom-color:#1e293b}
+[data-theme="tech"] .mh h2{color:#e2e8f0}
+[data-theme="tech"] .mh .user-info{color:#94a3b8}
+[data-theme="tech"] .mh .user-info .user-name{color:#e2e8f0}
+[data-theme="tech"] .mh .user-info .logout-btn{color:#94a3b8;border-color:#1e293b}
+[data-theme="tech"] .mh .user-info .logout-btn:hover{background:rgba(239,68,68,.1);border-color:#ef4444;color:#ef4444}
+[data-theme="tech"] .mb{background:#0a0e1a}
+[data-theme="tech"] .card{background:#111827;box-shadow:0 1px 3px rgba(6,214,160,.04);border:1px solid #1e293b}
+[data-theme="tech"] .ct{color:#e2e8f0}
+[data-theme="tech"] .fg label{color:#94a3b8}
+[data-theme="tech"] .fg input,[data-theme="tech"] .fg textarea,[data-theme="tech"] .fg select{background:#1a2235;color:#e2e8f0;border-color:#1e293b}
+[data-theme="tech"] .fg input:focus,[data-theme="tech"] .fg textarea:focus,[data-theme="tech"] .fg select:focus{border-color:#06d6a0}
+[data-theme="tech"] .filter-row,[data-theme="tech"] .batch-actions,[data-theme="tech"] .user-batch-toolbar,[data-theme="tech"] .dealer-mgr-toolbar,[data-theme="tech"] .user-mgr .add-user-row{background:#111827;border-color:#1e293b}
+[data-theme="tech"] .user-mgr .add-user-row{border-style:dashed}
+[data-theme="tech"] #tb th,[data-theme="tech"] .user-mgr .user-table th,[data-theme="tech"] .dealer-table-wrap th{background:#111827;color:#94a3b8;border-bottom-color:#1e293b}
+[data-theme="tech"] #tb td,[data-theme="tech"] .user-mgr .user-table td,[data-theme="tech"] .dealer-table-wrap td{border-bottom-color:#1a2235;color:#e2e8f0}
+[data-theme="tech"] .dealer-table-wrap td,[data-theme="tech"] .dealer-table-wrap th{border-color:#1e293b}
+[data-theme="tech"] .dealer-table-wrap table{border-color:#1e293b}
+[data-theme="tech"] .tbs{background:#1a2235}
+[data-theme="tech"] .tb{color:#94a3b8}
+[data-theme="tech"] .tb.act{background:#111827;color:#e2e8f0}
+[data-theme="tech"] .dashboard-home .welcome{background:linear-gradient(135deg,#0f172a,#1e293b);color:#e2e8f0;border:1px solid #1e293b}
+[data-theme="tech"] .dashboard-home .welcome h2{color:#e2e8f0}
+[data-theme="tech"] .dashboard-home .welcome p{color:#94a3b8}
+[data-theme="tech"] .dashboard-home .welcome .welcome-right{color:#64748b}
+[data-theme="tech"] .dashboard-home .stat-card{background:#111827;border-color:#1e293b}
+[data-theme="tech"] .dashboard-home .stat-card .stat-number{color:#e2e8f0}
+[data-theme="tech"] .dashboard-home .stat-card .stat-label{color:#64748b}
+[data-theme="tech"] .dashboard-home .widget-grid .widget-card{background:#111827;border-color:#1e293b}
+[data-theme="tech"] .dashboard-home .widget-grid .widget-card .widget-title{color:#e2e8f0}
+[data-theme="tech"] .dashboard-home .widget-grid .widget-card .widget-body{color:#94a3b8}
+[data-theme="tech"] .btn-o{border-color:#1e293b;color:#e2e8f0;background:transparent}
+[data-theme="tech"] .btn-o:hover{background:#1a2235}
+[data-theme="tech"] .btn-p{background:#06d6a0;color:#0a0e1a}
+[data-theme="tech"] .btn-p:hover{background:#05b88a}
+[data-theme="tech"] .btn-s{background:#0ea5e9;color:#fff}
+[data-theme="tech"] .btn-s:hover{background:#0284c7}
+[data-theme="tech"] .modal-overlay{background:rgba(0,0,0,.7)}
+[data-theme="tech"] .modal-box{background:#111827;border:1px solid #1e293b}
+[data-theme="tech"] .modal-box h3{color:#e2e8f0}
+[data-theme="tech"] .modal-box .modal-label{color:#94a3b8}
+[data-theme="tech"] .modal-box input,[data-theme="tech"] .modal-box textarea,[data-theme="tech"] .modal-box select{background:#1a2235;color:#e2e8f0;border-color:#1e293b}
+[data-theme="tech"] .pagination .page-btn,[data-theme="tech"] .dealer-pagination .page-btn{background:#111827;border-color:#1e293b;color:#e2e8f0}
+[data-theme="tech"] .pagination .page-btn.active{background:#06d6a0;color:#0a0e1a;border-color:#06d6a0}
+[data-theme="tech"] .dealer-pagination .page-btn.active{background:#06d6a0;color:#0a0e1a;border-color:#06d6a0}
+[data-theme="tech"] .ma{background:#1a2235;border-color:#1e293b}
+[data-theme="tech"] .mt{color:#e2e8f0}
+[data-theme="tech"] .live-result-box{background:#1a2235;border-color:#1e293b;color:#e2e8f0}
+[data-theme="tech"] .live-check-item{color:#94a3b8}
+[data-theme="tech"] .live-check-item:hover{background:#1a2235}
+[data-theme="tech"] .dealer-mgr-toolbar .search-box{background:#1a2235;border-color:#1e293b;color:#e2e8f0}
+[data-theme="tech"] .dealer-mgr-toolbar .group-filter-btn{background:#1a2235;border-color:#1e293b;color:#94a3b8}
+[data-theme="tech"] .dealer-mgr-toolbar .group-filter-btn.active{background:#06d6a0;color:#0a0e1a;border-color:#06d6a0}
+[data-theme="tech"] .dealer-mgr-toolbar .sort-btn{background:#1a2235;border-color:#1e293b;color:#94a3b8}
+[data-theme="tech"] .batch-mode-bar{background:rgba(6,214,160,.08);border-bottom-color:rgba(6,214,160,.15)}
+[data-theme="tech"] .auth-page{background:radial-gradient(ellipse at 50% 30%,#0f172a,#020617)}
+[data-theme="tech"] .auth-card{background:rgba(14,165,233,.05);border-color:rgba(6,214,160,.15)}
+[data-theme="tech"] .auth-brand h1{color:#06d6a0}
+[data-theme="tech"] .auth-brand .sub{color:#64748b}
+[data-theme="tech"] .auth-brand .mode-tag{background:rgba(6,214,160,.15);color:#06d6a0;border-color:rgba(6,214,160,.2)}
+[data-theme="tech"] .auth-form .form-group label{color:#64748b}
+[data-theme="tech"] .auth-form .form-group input{background:rgba(14,165,233,.04);border-color:rgba(6,214,160,.15);color:#e2e8f0}
+[data-theme="tech"] .auth-form .form-group input:focus{border-color:rgba(6,214,160,.5);background:rgba(14,165,233,.08)}
+[data-theme="tech"] .auth-form .form-group select{background:rgba(14,165,233,.04);border-color:rgba(6,214,160,.15);color:#e2e8f0}
+[data-theme="tech"] .auth-form .form-group select option{background:#0f172a;color:#e2e8f0}
+[data-theme="tech"] .auth-btn{background:linear-gradient(135deg,#06d6a0,#0ea5e9);color:#0a0e1a}
+[data-theme="tech"] .auth-btn:hover{box-shadow:0 8px 32px rgba(6,214,160,.3)}
+[data-theme="tech"] .auth-footer{color:#64748b}
+[data-theme="tech"] .auth-footer a{color:#64748b}
+[data-theme="tech"] .auth-footer a:hover{color:#06d6a0}
+[data-theme="tech"] .question-area{background:rgba(14,165,233,.04);border-color:rgba(6,214,160,.1)}
+[data-theme="tech"] .question-area .q-text{color:#e2e8f0}
+[data-theme="tech"] .question-area .q-hint{color:#64748b}
+[data-theme="tech"] .gate-page{background:radial-gradient(ellipse at 50% 30%,#0f172a,#020617)}
+[data-theme="tech"] .gate-card{background:rgba(14,165,233,.05);border-color:rgba(6,214,160,.15)}
+[data-theme="tech"] .gate-card h2{color:#06d6a0}
+[data-theme="tech"] .gate-card .sub{color:#64748b}
+[data-theme="tech"] .gate-card input{background:rgba(14,165,233,.04);border-color:rgba(6,214,160,.15);color:#e2e8f0}
+[data-theme="tech"] .gate-card input:focus{border-color:#06d6a0}
+[data-theme="tech"] .gate-card .gate-btn{background:linear-gradient(135deg,#06d6a0,#0ea5e9);color:#0a0e1a}
+[data-theme="tech"] .bsvip{background:#06d6a0;color:#0a0e1a}
+[data-theme="tech"] .toggle-switch-label{color:#94a3b8}
+/*=== Animations ===*/
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes savePulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.4)}70%{box-shadow:0 0 0 10px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+.auth-btn.loading{position:relative;pointer-events:none;opacity:.7}
+.auth-btn.loading::after{content:'';display:inline-block;width:14px;height:14px;border:2px solid transparent;border-top-color:currentColor;border-radius:50%;animation:spin .6s linear infinite;margin-left:6px;vertical-align:middle}
+.save-pulse{animation:savePulse .6s ease}
+.card.fade-in,.stat-card.fade-in,.widget-card.fade-in{animation:fadeInUp .25s ease both}
+.btn,.di,.tb,.quick-btn,.group-filter-btn,.sort-btn,.page-btn{transition:all .15s ease}
+/*=== Theme Switcher UI ===*/
+.theme-switcher{position:relative;display:inline-flex;align-items:center;z-index:10000;margin-left:8px}
+.theme-btn-theme{width:32px;height:32px;border-radius:6px;border:1px solid #d1d5db;cursor:pointer;transition:all .15s;padding:0;font-size:15px;display:flex;align-items:center;justify-content:center;background:transparent;color:#6b7280}
+.theme-btn-theme:hover{transform:scale(1.1);background:rgba(128,128,128,.1)}
+.theme-panel{display:none;position:absolute;top:38px;right:0;background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:6px;box-shadow:0 4px 24px rgba(0,0,0,.15);z-index:99999;min-width:185px}
+.theme-panel.show{display:block}
+[data-theme="tech"] .theme-panel{background:#111827;border-color:#1e293b}
+.theme-panel-item{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:5px;cursor:pointer;font-size:12px;color:#374151;transition:background .12s;border:none;background:none;width:100%;text-align:left;font-family:inherit}
+.theme-panel-item:hover{background:#f3f4f6}
+.theme-panel-item.active{background:#eff6ff;font-weight:600;color:#2563eb}
+[data-theme="tech"] .theme-panel-item{color:#e2e8f0}
+[data-theme="tech"] .theme-panel-item:hover{background:#1a2235}
+[data-theme="tech"] .theme-panel-item.active{background:rgba(6,214,160,.12);color:#06d6a0}
+.theme-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;border:1px solid rgba(0,0,0,.1)}
+.theme-dot.dark-dot{background:#1a2332}
+.theme-dot.light-dot{background:#fbfbfa}
+.theme-dot.warm-dot{background:#fef9f2}
+.theme-dot.green-dot{background:#f2f7f4}
+.theme-dot.biz-dot{background:#1e3a5f}
+.theme-dot.tech-dot{background:#0a0e1a;border-color:#06d6a0}
+/*=== Mobile ===*/
+.mobile-menu-btn{display:none;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid #d1d5db;border-radius:6px;background:#fff;cursor:pointer;font-size:18px;color:#374151;padding:0;margin-right:6px;flex-shrink:0}
+.sidebar-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4);z-index:998}
+@media(max-width:768px){
+.mobile-menu-btn{display:flex}
+.sidebar{position:fixed;left:-240px;top:0;bottom:0;z-index:999;transition:left .25s ease;width:240px;min-width:240px}
+.sidebar.open{left:0}
+.sidebar-overlay.show{display:block}
+.mb{padding:10px 10px}
+.card{padding:10px 10px}
+.mh{padding:8px 10px;gap:4px}
+.mh .user-info{font-size:10px;gap:4px}
+.mh h2{font-size:12px}
+.btn{padding:6px 12px;font-size:11px;min-height:36px}
+.btn-sm{padding:4px 8px;font-size:10px;min-height:30px}
+.fg input,.fg select,.fg textarea{font-size:13px;padding:7px 8px}
+#tb,.dealer-table-wrap,.user-mgr .user-table{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.dashboard-home .stats-grid{grid-template-columns:1fr 1fr;gap:8px}
+.dashboard-home .stat-card{padding:12px 14px}
+.dashboard-home .stat-card .stat-number{font-size:22px}
+.dashboard-home .widget-grid{grid-template-columns:1fr;gap:10px}
+.dashboard-home .welcome{flex-direction:column;text-align:center;padding:16px}
+.dashboard-home .welcome .welcome-right{text-align:center}
+.live-check-grid{grid-template-columns:1fr}
+.auth-card{padding:28px 20px 24px}
+.gate-card{padding:32px 24px 28px}
+.fr{flex-direction:column;gap:4px}
+.fg{min-width:auto}
+.user-mgr .add-user-row{flex-direction:column}
+.user-mgr .add-user-row .fg{min-width:auto}
+.perm-check-group{grid-template-columns:1fr}
+.dealer-mgr-toolbar{flex-direction:column;align-items:stretch}
+.dealer-mgr-toolbar .search-box{min-width:auto}
+.filter-row{flex-direction:column;align-items:stretch}
+.live-action-bar{flex-wrap:wrap;gap:4px}
+.live-action-bar .btn{font-size:10px;padding:5px 8px}
+#tb th,#tb td{padding:4px 5px;font-size:10px}
+.user-mgr .user-table th,.user-mgr .user-table td{padding:3px 4px;font-size:9px}
+.modal-box{padding:16px 16px;max-width:95%}
+.modal-box h3{font-size:14px}
 }
-
-@media (max-width: 480px) {
-    .dashboard-home .stats-grid { grid-template-columns: 1fr 1fr; }
-    .dashboard-home .stat-card .stat-number { font-size: 18px; }
+@media(max-width:480px){
+.dashboard-home .stats-grid{grid-template-columns:1fr 1fr}
+.dashboard-home .stat-card .stat-number{font-size:18px}
 }
+</style></head><body><div class="gate-page" id="gatePage"><div class="gate-card"><h2>🔐 鹿安复盘系统</h2><div class="sub">请输入访问密码</div><input type="password" id="gatePassword" placeholder="访问密码" onkeydown="if(event.key==='Enter')checkGate()"><button class="gate-btn" onclick="checkGate()">进 入</button><div class="gate-err" id="gateErr"></div></div></div>
 
-</style>
-</head><body><div class="gate-page" id="gatePage"><div class="gate-card"><h2>🔐 鹿安复盘系统</h2><div class="sub">请输入访问密码</div><input type="password" id="gatePassword" placeholder="访问密码" onkeydown="if(event.key==='Enter')checkGate()"><button class="gate-btn" onclick="checkGate()">进 入</button><div class="gate-err" id="gateErr"></div></div></div>
-
-<div class="auth-page" id="authPage"><div class="auth-card"><div class="auth-brand"><div class="brand-icon"><svg viewBox="0 0 48 48"><path d="M24 4 L8 10 L8 22 C8 32 16 40 24 44 C32 40 40 32 40 22 L40 10 L24 4Z" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="2"/><rect x="21" y="24" width="6" height="8" rx="1" fill="none" stroke="#fff" stroke-width="2"/><circle cx="24" cy="30" r="2" fill="#fff"/><path d="M21 24 L21 20 C21 16 27 16 27 20 L27 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div><h1 id="brandTitle">鹿安智能锁</h1><div class="sub">复 盘 管 理 系 统 v6.0（云端完整版）</div><div id="loginModeTag" class="mode-tag">🔑 管理员登录</div></div><div id="authError" class="auth-error"></div><div id="authSuccess" class="auth-success"></div><div id="loginForm" class="auth-form"><div class="form-group"><label>账 号</label><input type="text" id="loginUsername" placeholder="请输入管理员账号" value="胡大海"></div><div class="form-group"><label>密 码</label><input type="password" id="loginPassword" placeholder="请输入密码" value="dh330722"></div><button class="auth-btn" onclick="handleLogin()">登 录</button><div class="auth-footer"><a class="switch-link user-link" onclick="switchToUserMode()">子账号登录</a></div></div><div id="userLoginForm" class="auth-form" style="display:none;"><div class="form-group"><label>账 号</label><input type="text" id="userLoginUsername" placeholder="请输入子账号"></div><div class="question-area" id="questionArea"><div class="q-text" id="questionDisplay">请先输入账号</div><div class="q-hint">输入账号后自动加载安全问题</div></div><div class="form-group"><label>回 答</label><input type="text" id="userLoginAnswer" placeholder="请输入答案"></div><button class="auth-btn" onclick="handleUserLogin()">验 证 登 录</button><div class="auth-footer" style="font-size:10px;color:rgba(255,255,255,0.15);">💡 如有问题请联系管理员</div></div></div></div><div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileMenu()"></div>
-<div class="container" id="mainApp" style="display:none;"><div class="sidebar"><div class="sidebar-header"><div class="brand"><div class="brand-logo"><svg viewBox="0 0 24 24"><path d="M12 2 L4 5 L4 11 C4 16 8 20 12 22 C16 20 20 16 20 11 L20 5 L12 2Z" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="13" r="1.5" fill="#fff"/><rect x="10.5" y="11" width="3" height="4" rx="0.5" fill="none" stroke="#fff" stroke-width="1"/></svg></div><span class="brand-name">鹿安</span></div><span class="ver">v6.0</span></div><div class="batch-mode-bar" id="batchModeBar"><span class="batch-info">已选 <strong id="batchSelectedCount">0</strong> 个经销商</span><div class="batch-actions"><button class="btn btn-p btn-sm" onclick="batchSetFlag()">🏷️ 设置标记</button><button class="btn btn-danger btn-sm" onclick="batchClearFlag()">✕ 清除标记</button><button class="btn btn-o btn-sm" onclick="exitBatchMode()" style="border-color:#94a3b8;color:#94a3b8;">完成</button></div></div><div class="sd-search"><input type="text" id="si" placeholder="搜索经销商..." oninput="filterD()"><div class="batch-btn-row"><button class="btn btn-o btn-sm" onclick="enterBatchMode()" style="color:#f59e0b;border-color:#f59e0b;">🏳️ 批量标记</button></div></div><div class="dl" id="dl"></div></div><div class="main"><div class="mh"><h2 id="dN">选择经销商</h2><span id="dB" class="bdg" style="display:none"></span><button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">☰</button>
-<div class="mh-actions">
-
-<div class="theme-switcher" id="themeSwitcher">
-    <button class="theme-btn-theme" id="themeToggleBtn" title="切换主题" onclick="toggleThemePanel()">🎨</button>
-    <div class="theme-panel" id="themePanel">
-        <button class="theme-panel-item" data-theme="dark" onclick="setTheme('dark')"><span class="theme-dot dark-dot"></span>🌙 经典深色</button>
-        <button class="theme-panel-item" data-theme="light" onclick="setTheme('light')"><span class="theme-dot light-dot"></span>☀️ 浅色简洁</button>
-        <button class="theme-panel-item" data-theme="warm" onclick="setTheme('warm')"><span class="theme-dot warm-dot"></span>🔅 柔和暖色</button>
-        <button class="theme-panel-item" data-theme="green" onclick="setTheme('green')"><span class="theme-dot green-dot"></span>🌿 清新护眼</button>
-        <button class="theme-panel-item" data-theme="business" onclick="setTheme('business')"><span class="theme-dot biz-dot"></span>💼 商务蓝</button>
-        <button class="theme-panel-item" data-theme="tech" onclick="setTheme('tech')"><span class="theme-dot tech-dot"></span>🚀 科技风</button>
-    </div>
-</div>
-<button class="btn btn-undo btn-sm" onclick="undoAction()">↩ 撤销</button><button class="btn btn-clear btn-sm" onclick="clearReviewInputs()">🗑 清空复盘</button><input type="date" id="rd" style="padding:3px 6px;border:1px solid #d1d5db;border-radius:4px;font-size:10px;"><span id="healthBadge" class="health-badge"></span></div><div class="user-info" id="userInfoArea"><span class="user-name" id="currentUserDisplay">管理员</span><button class="logout-btn" onclick="handleLogout()">退出</button></div></div><div class="mb"><div class="dashboard-home" id="dashboardHome"><div class="welcome"><div><h2>👋 欢迎回来，<span id="welcomeUser">管理员</span> <small>· 今天也要加油 💪</small></h2><p id="welcomeDate"></p></div><div class="welcome-right"><div id="welcomeTime"></div><div style="font-size:10px;opacity:0.6;">系统运行正常 ✅</div></div></div><div class="stats-grid" id="statsGrid"><div class="stat-card stat-red"><div class="stat-number" id="statDealers">0</div><div class="stat-label">📋 总经销商</div><span class="stat-icon">🏢</span></div><div class="stat-card stat-blue"><div class="stat-number" id="statToday">0</div><div class="stat-label">📝 今日复盘</div><span class="stat-icon">📊</span></div><div class="stat-card stat-green"><div class="stat-number" id="statTotal">0</div><div class="stat-label">📊 总复盘记录</div><span class="stat-icon">📈</span></div><div class="stat-card stat-orange"><div class="stat-number" id="statPending">0</div><div class="stat-label">⏳ 待处理提醒</div><span class="stat-icon">🔔</span></div></div><div class="widget-grid"><div class="widget-card"><div class="widget-title">📋 待办事项 <span class="badge-count" id="todoCount">0</span></div><div class="widget-body" id="todoList"><div style="color:#9ca3af;font-size:11px;">暂无待办，添加一个吧</div></div><div class="todo-add"><input type="text" id="todoInput" placeholder="输入待办..." onkeydown="if(event.key==='Enter')addTodo()"><button class="btn btn-p btn-sm" onclick="addTodo()">添加</button></div></div><div class="widget-card"><div class="widget-title">🎯 本月目标 <button class="btn btn-o btn-sm" onclick="setGoal()" style="font-size:8px;padding:0 6px;">设置</button></div><div class="widget-body"><div class="progress-label"><span>目标：<span id="goalTotal">100</span> 条</span><span>已完成：<span id="goalDone">0</span> 条</span></div><div class="progress-bar"><div class="progress-fill" id="goalFill" style="width:0%"></div></div><div style="text-align:center;font-size:11px;margin-top:2px;color:#4f9cf7;font-weight:600;">达成率：<span id="goalRate">0</span>%</div><div style="font-size:10px;color:#9ca3af;margin-top:2px;text-align:center;">📅 本月剩余 <span id="goalRemainDays">30</span> 天</div></div></div><div class="widget-card"><div class="widget-title">📌 待复盘经销商 <span class="badge-count" id="unreviewedCount">0</span></div><div class="widget-body" id="unreviewedList"><div style="color:#9ca3af;font-size:11px;">加载中...</div></div></div><div class="widget-card"><div class="widget-title">⚡ 快捷操作</div><div class="widget-body"><button class="quick-btn" onclick="quickReview()">📹 快速复盘</button><button class="quick-btn" onclick="quickUnreviewed()">📋 未复盘清单</button><button class="quick-btn" onclick="openReportModal()">📊 生成日报</button><button class="quick-btn" onclick="quickExport()">⬇️ 导出数据</button><button class="quick-btn" onclick="quickBackup()">💾 完整备份</button><div style="font-size:10px;color:#9ca3af;margin-top:4px;">💡 点击快速开始工作</div></div></div><div class="widget-card" style="grid-column:span 1;" id="logWidget"><div class="widget-title">📝 最近操作记录</div><div class="widget-body" id="logList"><div style="color:#9ca3af;font-size:11px;">暂无操作记录</div></div></div></div></div><div id="rc" style="display:none;"><div class="tbs"><button class="tb home-tab" data-tab="home" onclick="swT('home')">🏠 首页</button><button class="tb act" data-tab="v" onclick="swT('v')">📹 复盘</button><button class="tb" data-tab="l" onclick="swT('l')">📺 直播</button><button class="tb" data-tab="s" onclick="swT('s')">🎬 素材</button><button class="tb" data-tab="t" onclick="swT('t')">📊 数据</button><button class="tb" data-tab="template" onclick="swT('template')">📋 模板库</button><button class="tb" data-tab="m" onclick="swT('m')" id="tabM">⚙️ 管理</button><button class="tb users-tab" data-tab="users" onclick="swT('users')" id="tabUsers">👥 用户管理</button><button class="tb" data-tab="sync" onclick="swT('sync')" id="tabSync">🔄 同步</button></div>                    <!-- 复盘 Tab -->
+<div class="auth-page" id="authPage"><div class="auth-card"><div class="auth-brand"><div class="brand-icon"><svg viewBox="0 0 48 48"><path d="M24 4 L8 10 L8 22 C8 32 16 40 24 44 C32 40 40 32 40 22 L40 10 L24 4Z" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="2"/><rect x="21" y="24" width="6" height="8" rx="1" fill="none" stroke="#fff" stroke-width="2"/><circle cx="24" cy="30" r="2" fill="#fff"/><path d="M21 24 L21 20 C21 16 27 16 27 20 L27 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div><h1 id="brandTitle">鹿安智能锁</h1><div class="sub">复 盘 管 理 系 统 v6.0（云端完整版）</div><div id="loginModeTag" class="mode-tag">🔑 管理员登录</div></div><div id="authError" class="auth-error"></div><div id="authSuccess" class="auth-success"></div><div id="loginForm" class="auth-form"><div class="form-group"><label>账 号</label><input type="text" id="loginUsername" placeholder="请输入管理员账号" value="胡大海"></div><div class="form-group"><label>密 码</label><input type="password" id="loginPassword" placeholder="请输入密码" value="dh330722"></div><button class="auth-btn" onclick="handleLogin()">登 录</button><div class="auth-footer"><a class="switch-link user-link" onclick="switchToUserMode()">子账号登录</a></div></div><div id="userLoginForm" class="auth-form" style="display:none;"><div class="form-group"><label>账 号</label><input type="text" id="userLoginUsername" placeholder="请输入子账号"></div><div class="question-area" id="questionArea"><div class="q-text" id="questionDisplay">请先输入账号</div><div class="q-hint">输入账号后自动加载安全问题</div></div><div class="form-group"><label>回 答</label><input type="text" id="userLoginAnswer" placeholder="请输入答案"></div><button class="auth-btn" onclick="handleUserLogin()">验 证 登 录</button><div class="auth-footer" style="font-size:10px;color:rgba(255,255,255,0.15);">💡 如有问题请联系管理员</div></div></div></div><div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileMenu()"></div><div class="container" id="mainApp" style="display:none;"><div class="sidebar"><div class="sidebar-header"><div class="brand"><div class="brand-logo"><svg viewBox="0 0 24 24"><path d="M12 2 L4 5 L4 11 C4 16 8 20 12 22 C16 20 20 16 20 11 L20 5 L12 2Z" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="13" r="1.5" fill="#fff"/><rect x="10.5" y="11" width="3" height="4" rx="0.5" fill="none" stroke="#fff" stroke-width="1"/></svg></div><span class="brand-name">鹿安</span></div><span class="ver">v6.0</span></div><div class="batch-mode-bar" id="batchModeBar"><span class="batch-info">已选 <strong id="batchSelectedCount">0</strong> 个经销商</span><div class="batch-actions"><button class="btn btn-p btn-sm" onclick="batchSetFlag()">🏷️ 设置标记</button><button class="btn btn-danger btn-sm" onclick="batchClearFlag()">✕ 清除标记</button><button class="btn btn-o btn-sm" onclick="exitBatchMode()" style="border-color:#94a3b8;color:#94a3b8;">完成</button></div></div><div class="sd-search"><input type="text" id="si" placeholder="搜索经销商..." oninput="filterD()"><div class="batch-btn-row"><button class="btn btn-o btn-sm" onclick="enterBatchMode()" style="color:#f59e0b;border-color:#f59e0b;">🏳️ 批量标记</button></div></div><div class="dl" id="dl"></div></div><div class="main"><div class="mh"><button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">☰</button><h2 id="dN">选择经销商</h2><span id="dB" class="bdg" style="display:none"></span><div class="mh-actions"><button class="btn btn-undo btn-sm" onclick="undoAction()">↩ 撤销</button><button class="btn btn-clear btn-sm" onclick="clearReviewInputs()">🗑 清空复盘</button><input type="date" id="rd" style="padding:3px 6px;border:1px solid #d1d5db;border-radius:4px;font-size:10px;"><span id="healthBadge" class="health-badge"></span></div><div class="user-info" id="userInfoArea"><span class="user-name" id="currentUserDisplay">管理员</span><div class="theme-switcher" id="themeSwitcher"><button class="theme-btn-theme" id="themeToggleBtn" title="切换主题" onclick="toggleThemePanel()">🎨</button><div class="theme-panel" id="themePanel"><button class="theme-panel-item" data-theme="dark" onclick="setTheme('dark')"><span class="theme-dot dark-dot"></span>🌙 经典深色</button><button class="theme-panel-item" data-theme="light" onclick="setTheme('light')"><span class="theme-dot light-dot"></span>☀️ 浅色简洁</button><button class="theme-panel-item" data-theme="warm" onclick="setTheme('warm')"><span class="theme-dot warm-dot"></span>🔅 柔和暖色</button><button class="theme-panel-item" data-theme="green" onclick="setTheme('green')"><span class="theme-dot green-dot"></span>🌿 清新护眼</button><button class="theme-panel-item" data-theme="business" onclick="setTheme('business')"><span class="theme-dot biz-dot"></span>💼 商务蓝</button><button class="theme-panel-item" data-theme="tech" onclick="setTheme('tech')"><span class="theme-dot tech-dot"></span>🚀 科技风</button></div></div><button class="logout-btn" onclick="handleLogout()">退出</button></div></div><div class="mb"><div class="dashboard-home" id="dashboardHome"><div class="welcome"><div><h2>👋 欢迎回来，<span id="welcomeUser">管理员</span> <small>· 今天也要加油 💪</small></h2><p id="welcomeDate"></p></div><div class="welcome-right"><div id="welcomeTime"></div><div style="font-size:10px;opacity:0.6;">系统运行正常 ✅</div></div></div><div class="stats-grid" id="statsGrid"><div class="stat-card stat-red"><div class="stat-number" id="statDealers">0</div><div class="stat-label">📋 总经销商</div><span class="stat-icon">🏢</span></div><div class="stat-card stat-blue"><div class="stat-number" id="statToday">0</div><div class="stat-label">📝 今日复盘</div><span class="stat-icon">📊</span></div><div class="stat-card stat-green"><div class="stat-number" id="statTotal">0</div><div class="stat-label">📊 总复盘记录</div><span class="stat-icon">📈</span></div><div class="stat-card stat-orange"><div class="stat-number" id="statPending">0</div><div class="stat-label">⏳ 待处理提醒</div><span class="stat-icon">🔔</span></div></div><div class="widget-grid"><div class="widget-card"><div class="widget-title">📋 待办事项 <span class="badge-count" id="todoCount">0</span></div><div class="widget-body" id="todoList"><div style="color:#9ca3af;font-size:11px;">暂无待办，添加一个吧</div></div><div class="todo-add"><input type="text" id="todoInput" placeholder="输入待办..." onkeydown="if(event.key==='Enter')addTodo()"><button class="btn btn-p btn-sm" onclick="addTodo()">添加</button></div></div><div class="widget-card"><div class="widget-title">🎯 本月目标 <button class="btn btn-o btn-sm" onclick="setGoal()" style="font-size:8px;padding:0 6px;">设置</button></div><div class="widget-body"><div class="progress-label"><span>目标：<span id="goalTotal">100</span> 条</span><span>已完成：<span id="goalDone">0</span> 条</span></div><div class="progress-bar"><div class="progress-fill" id="goalFill" style="width:0%"></div></div><div style="text-align:center;font-size:11px;margin-top:2px;color:#4f9cf7;font-weight:600;">达成率：<span id="goalRate">0</span>%</div><div style="font-size:10px;color:#9ca3af;margin-top:2px;text-align:center;">📅 本月剩余 <span id="goalRemainDays">30</span> 天</div></div></div><div class="widget-card"><div class="widget-title">📌 待复盘经销商 <span class="badge-count" id="unreviewedCount">0</span></div><div class="widget-body" id="unreviewedList"><div style="color:#9ca3af;font-size:11px;">加载中...</div></div></div><div class="widget-card"><div class="widget-title">⚡ 快捷操作</div><div class="widget-body"><button class="quick-btn" onclick="quickReview()">📹 快速复盘</button><button class="quick-btn" onclick="quickUnreviewed()">📋 未复盘清单</button><button class="quick-btn" onclick="openReportModal()">📊 生成日报</button><button class="quick-btn" onclick="quickExport()">⬇️ 导出数据</button><button class="quick-btn" onclick="quickBackup()">💾 完整备份</button><div style="font-size:10px;color:#9ca3af;margin-top:4px;">💡 点击快速开始工作</div></div></div><div class="widget-card" style="grid-column:span 1;" id="logWidget"><div class="widget-title">📝 最近操作记录</div><div class="widget-body" id="logList"><div style="color:#9ca3af;font-size:11px;">暂无操作记录</div></div></div></div></div><div id="rc" style="display:none;"><div class="tbs"><button class="tb home-tab" data-tab="home" onclick="swT('home')">🏠 首页</button><button class="tb act" data-tab="v" onclick="swT('v')">📹 复盘</button><button class="tb" data-tab="l" onclick="swT('l')">📺 直播</button><button class="tb" data-tab="s" onclick="swT('s')">🎬 素材</button><button class="tb" data-tab="t" onclick="swT('t')">📊 数据</button><button class="tb" data-tab="template" onclick="swT('template')">📋 模板库</button><button class="tb" data-tab="m" onclick="swT('m')" id="tabM">⚙️ 管理</button><button class="tb users-tab" data-tab="users" onclick="swT('users')" id="tabUsers">👥 用户管理</button><button class="tb" data-tab="sync" onclick="swT('sync')" id="tabSync">🔄 同步</button></div>                    <!-- 复盘 Tab -->
 
                     <div class="card" id="fV" style="display:block;">
 
@@ -9260,100 +9223,51 @@ var GATE_PASSWORD = 'luan2026';
     console.log('✅ 所有功能已加载完毕，可以开始使用了！');
 
 
-// ================================================================
-// 主题系统
-// ================================================================
-var THEME_KEY = 'luanTheme_v6';
-var THEMES = ['dark','light','warm','green','business','tech'];
-
-function getTheme() { return localStorage.getItem(THEME_KEY) || 'dark'; }
-
-function setTheme(name) {
-    if (THEMES.indexOf(name) === -1) return;
-    document.documentElement.setAttribute('data-theme', name);
-    localStorage.setItem(THEME_KEY, name);
-    var items = document.querySelectorAll('.theme-panel-item');
-    for (var i = 0; i < items.length; i++) {
-        items[i].classList.toggle('active', items[i].getAttribute('data-theme') === name);
-    }
+var THEME_KEY='luanTheme_v6',THEMES=['dark','light','warm','green','business','tech'];
+function getTheme(){return localStorage.getItem(THEME_KEY)||'dark';}
+function setTheme(name){
+    if(THEMES.indexOf(name)===-1)return;
+    document.documentElement.setAttribute('data-theme',name);
+    localStorage.setItem(THEME_KEY,name);
+    var items=document.querySelectorAll('.theme-panel-item');
+    for(var i=0;i<items.length;i++)items[i].classList.toggle('active',items[i].getAttribute('data-theme')===name);
     document.getElementById('themePanel').classList.remove('show');
 }
-
-function toggleThemePanel() {
-    var panel = document.getElementById('themePanel');
-    panel.classList.toggle('show');
-    var current = getTheme();
-    var items = document.querySelectorAll('.theme-panel-item');
-    for (var i = 0; i < items.length; i++) {
-        items[i].classList.toggle('active', items[i].getAttribute('data-theme') === current);
-    }
+function toggleThemePanel(){
+    var p=document.getElementById('themePanel');p.classList.toggle('show');
+    var cur=getTheme(),items=document.querySelectorAll('.theme-panel-item');
+    for(var i=0;i<items.length;i++)items[i].classList.toggle('active',items[i].getAttribute('data-theme')===cur);
 }
-
-document.addEventListener('click', function(e) {
-    var panel = document.getElementById('themePanel');
-    var btn = document.getElementById('themeToggleBtn');
-    if (panel && btn && !panel.contains(e.target) && !btn.contains(e.target)) {
-        panel.classList.remove('show');
-    }
+document.addEventListener('click',function(e){
+    var p=document.getElementById('themePanel'),b=document.getElementById('themeToggleBtn');
+    if(p&&b&&!p.contains(e.target)&&!b.contains(e.target))p.classList.remove('show');
 });
-
-// Apply saved theme on load
-(function() {
-    var saved = getTheme();
-    if (saved && saved !== 'dark') {
-        document.documentElement.setAttribute('data-theme', saved);
-    }
-})();
-
-// ================================================================
-// 移动端菜单
-// ================================================================
-function toggleMobileMenu() {
-    var sidebar = document.querySelector('.sidebar');
-    var overlay = document.getElementById('sidebarOverlay');
-    if (sidebar && overlay) {
-        sidebar.classList.toggle('open');
-        overlay.classList.toggle('show');
-    }
+(function(){var s=getTheme();if(s&&s!=='dark')document.documentElement.setAttribute('data-theme',s);})();
+function toggleMobileMenu(){
+    var s=document.querySelector('.sidebar'),o=document.getElementById('sidebarOverlay');
+    if(s&&o){s.classList.toggle('open');o.classList.toggle('show');}
 }
-
-// ================================================================
-// 加载动画
-// ================================================================
-var _origToast = toast;
-toast = function(msg, type) {
-    _origToast(msg, type);
-    if (type === 'success' || (!type && msg.indexOf('✅') !== -1)) {
-        var saveBtns = document.querySelectorAll('.btn-s');
-        for (var i = 0; i < saveBtns.length; i++) {
-            saveBtns[i].classList.add('save-pulse');
-            setTimeout(function(el) { el.classList.remove('save-pulse'); }, 600, saveBtns[i]);
-        }
+var _origToast=toast;toast=function(msg,type){
+    _origToast(msg,type);
+    if(type==='success'||(!type&&msg.indexOf('✅')!==-1)){
+        var btns=document.querySelectorAll('.btn-s');
+        for(var i=0;i<btns.length;i++){btns[i].classList.add('save-pulse');setTimeout(function(el){el.classList.remove('save-pulse');},600,btns[i]);}
     }
 };
-
-var _origShowMainApp = showMainApp;
-showMainApp = function() {
+var _origShowMainApp=showMainApp;showMainApp=function(){
     _origShowMainApp();
-    setTimeout(function() {
-        var cards = document.querySelectorAll('.card:not(.fade-in), .stat-card:not(.fade-in), .widget-card:not(.fade-in)');
-        for (var i = 0; i < cards.length; i++) {
-            (function(el, idx) { el.classList.add('fade-in'); el.style.animationDelay = (idx * 0.03) + 's'; })(cards[i], i);
-        }
-    }, 100);
+    setTimeout(function(){
+        var cards=document.querySelectorAll('.card:not(.fade-in),.stat-card:not(.fade-in),.widget-card:not(.fade-in)');
+        for(var i=0;i<cards.length;i++){(function(el,idx){el.classList.add('fade-in');el.style.animationDelay=(idx*0.03)+'s';})(cards[i],i);}
+    },100);
 };
-
-var _origSwT = swT;
-swT = function(name) {
+var _origSwT=swT;swT=function(name){
     _origSwT(name);
-    setTimeout(function() {
-        var cards = document.querySelectorAll('.card:not(.fade-in), .stat-card:not(.fade-in), .widget-card:not(.fade-in)');
-        for (var i = 0; i < cards.length; i++) {
-            (function(el, idx) { el.classList.add('fade-in'); el.style.animationDelay = (idx * 0.02) + 's'; })(cards[i], i);
-        }
-    }, 50);
+    setTimeout(function(){
+        var cards=document.querySelectorAll('.card:not(.fade-in),.stat-card:not(.fade-in),.widget-card:not(.fade-in)');
+        for(var i=0;i<cards.length;i++){(function(el,idx){el.classList.add('fade-in');el.style.animationDelay=(idx*0.02)+'s';})(cards[i],i);}
+    },50);
 };
-
 </script>
 
 </body>
