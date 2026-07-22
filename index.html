@@ -377,12 +377,12 @@
 [data-theme="tech"] .toggle-switch-label{color:#94a3b8}
 /*=== Animations ===*/
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes savePulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.4)}70%{box-shadow:0 0 0 10px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
 .auth-btn.loading{position:relative;pointer-events:none;opacity:.7}
 .auth-btn.loading::after{content:'';display:inline-block;width:14px;height:14px;border:2px solid transparent;border-top-color:currentColor;border-radius:50%;animation:spin .6s linear infinite;margin-left:6px;vertical-align:middle}
 .save-pulse{animation:savePulse .6s ease}
-.card.fade-in,.stat-card.fade-in,.widget-card.fade-in{animation:fadeInUp .25s ease both}
+.card.fade-in,.stat-card.fade-in,.widget-card.fade-in{animation:fadeInUp .4s ease both}
 .btn,.di,.tb,.quick-btn,.group-filter-btn,.sort-btn,.page-btn{transition:all .15s ease}
 /*=== Theme Switcher ===*/
 .theme-switcher{position:relative;display:inline-flex;align-items:center;z-index:10000;margin-left:8px}
@@ -9231,25 +9231,46 @@ if(p&&b&&!p.contains(e.target)&&!b.contains(e.target))p.classList.remove('show')
 
 /* === 动画增强 === */
 (function(){
-    /* 卡片淡入 - 监听 showMainApp 执行后的 DOM 变化 */
+    console.log('🎬 动画系统加载中...');
+    
+    /* 登录按钮 loading */
+    var loginBtn = document.querySelector('#loginForm .auth-btn');
+    var userLoginBtn = document.querySelector('#userLoginForm .auth-btn');
+    var _origHL = handleLogin;
+    var _origHUL = handleUserLogin;
+    
+    handleLogin = function(){
+        if(loginBtn){loginBtn.classList.add('loading');loginBtn.textContent='登录中...';}
+        try{_origHL.apply(this,arguments);}catch(e){}
+        setTimeout(function(){if(loginBtn){loginBtn.classList.remove('loading');loginBtn.textContent='登 录';}},3000);
+    };
+    handleUserLogin = function(){
+        if(userLoginBtn){userLoginBtn.classList.add('loading');userLoginBtn.textContent='验证中...';}
+        try{_origHUL.apply(this,arguments);}catch(e){}
+        setTimeout(function(){if(userLoginBtn){userLoginBtn.classList.remove('loading');userLoginBtn.textContent='验 证 登 录';}},3000);
+    };
+    
+    /* 卡片淡入 */
+    function animateCards(){
+        var cards = document.querySelectorAll('.card:not(.fade-in),.stat-card:not(.fade-in),.widget-card:not(.fade-in)');
+        for(var i=0;i<cards.length;i++){
+            cards[i].classList.add('fade-in');
+            cards[i].style.animationDelay=(i*0.04)+'s';
+        }
+    }
     var _origSMA = showMainApp;
     showMainApp = function(){
+        console.log('🎬 showMainApp hooked');
         _origSMA.apply(this, arguments);
-        setTimeout(function(){
-            var cards = document.querySelectorAll('.card:not(.fade-in),.stat-card:not(.fade-in),.widget-card:not(.fade-in)');
-            for(var i=0;i<cards.length;i++){cards[i].classList.add('fade-in');cards[i].style.animationDelay=(i*0.03)+'s';}
-        },150);
+        setTimeout(animateCards, 200);
     };
-    /* Tab 切换动画 */
     var _origSWT = swT;
     swT = function(n){
         _origSWT(n);
-        setTimeout(function(){
-            var cards = document.querySelectorAll('.card:not(.fade-in),.stat-card:not(.fade-in),.widget-card:not(.fade-in)');
-            for(var i=0;i<cards.length;i++){cards[i].classList.add('fade-in');cards[i].style.animationDelay=(i*0.02)+'s';}
-        },80);
+        setTimeout(animateCards, 80);
     };
-    /* 保存成功脉冲 */
+    
+    /* 保存脉冲 */
     var _origToast = toast;
     toast = function(msg,type){
         _origToast(msg,type);
@@ -9258,6 +9279,7 @@ if(p&&b&&!p.contains(e.target)&&!b.contains(e.target))p.classList.remove('show')
             for(var i=0;i<btns.length;i++){btns[i].classList.add('save-pulse');setTimeout(function(el){el.classList.remove('save-pulse');},600,btns[i]);}
         }
     };
+    console.log('🎬 动画系统就绪');
 })();
 </script>
 
