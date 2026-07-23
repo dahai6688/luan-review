@@ -913,6 +913,9 @@ var GATE_PASSWORD = 'luan2026';
 
             document.getElementById('gatePassword').value = '';
 
+            // 记住gate通过，7天内免输入
+            localStorage.setItem('luanGatePass_v6', Date.now());
+
         } else {
 
             document.getElementById('gateErr').textContent = '❌ 密码错误';
@@ -923,15 +926,20 @@ var GATE_PASSWORD = 'luan2026';
 
     }
 
-    // 24小时内有效 session 跳过密码门
+    // 7天内有效 session 或 gate pass 跳过密码门
 
-    if (localStorage.getItem('luanAppSession_v6')) {
+    var _gatePass = localStorage.getItem('luanGatePass_v6');
+    var _hasSession = localStorage.getItem('luanAppSession_v6');
+
+    if (_hasSession || _gatePass) {
 
         try {
 
-            var _s = JSON.parse(localStorage.getItem('luanAppSession_v6'));
+            var _s = _hasSession ? JSON.parse(_hasSession) : {};
+            var _gateOk = _gatePass && (Date.now() - parseInt(_gatePass) < 604800000);
+            var _sessionOk = _s.username && _s.loginTime && (Date.now() - _s.loginTime < 604800000);
 
-            if (_s.username && _s.loginTime && (Date.now() - _s.loginTime < 604800000)) {
+            if (_gateOk || _sessionOk) {
 
                 document.getElementById('gatePage').style.display = 'none';
 
