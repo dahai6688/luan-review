@@ -8727,6 +8727,9 @@ var GATE_PASSWORD = 'luan2026';
 
             addLog('编辑了用户「' + editUserTarget + '」');
 
+            // 清除黑名单，防止改有效期后账号仍被拦截
+            supabaseClient.from('revoked_users').delete().eq('username', newUsername).then(function(){});
+
         });
 
     }
